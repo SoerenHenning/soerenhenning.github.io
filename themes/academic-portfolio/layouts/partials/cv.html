@@ -1,27 +1,49 @@
-<section class="section" id="cv">
+<section class="section section--alt" id="cv">
   <div class="section-inner">
     <h2 class="section-title">Curriculum Vitae</h2>
     {{ $cv := .Site.Data.cv }}
     {{ if $cv }}
-    <div class="cv-columns">
-      {{ range $cv }}
-      <div class="cv-group">
-        <h3 class="cv-group-title">{{ .category }}</h3>
-        <ul class="cv-list">
-          {{ range .items }}
-          <li class="cv-entry">
-            <div class="cv-entry-period">{{ .period }}</div>
-            <div class="cv-entry-body">
-              <strong class="cv-entry-title">{{ .title }}</strong>
-              {{ with .institution }}<span class="cv-entry-institution">{{ . }}</span>{{ end }}
-              {{ with .location }}<span class="cv-entry-location">{{ . }}</span>{{ end }}
-              {{ with .description }}<p class="cv-entry-desc">{{ . }}</p>{{ end }}
-            </div>
-          </li>
-          {{ end }}
-        </ul>
+    <div class="cv-layout">
+      <!-- Left column: Research Career + Education -->
+      <div class="cv-left">
+        {{ range $cv.left }}
+        <div class="cv-group">
+          <h3 class="cv-group-title">{{ .category }}</h3>
+          <ul class="cv-list">
+            {{ range .items }}
+            <li class="cv-entry">
+              <div class="cv-entry-period">{{ .period }}</div>
+              <div class="cv-entry-body">
+                <strong class="cv-entry-title">{{ .title }}</strong>
+                {{ with .institution }}<span class="cv-entry-institution">{{ . }}</span>{{ end }}
+                {{ with .description }}<p class="cv-entry-desc">{{ . }}</p>{{ end }}
+              </div>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
       </div>
-      {{ end }}
+      <!-- Right column: Honors & Awards -->
+      <div class="cv-right">
+        {{ range $cv.right }}
+        <div class="cv-group">
+          <h3 class="cv-group-title">{{ .category }}</h3>
+          <ul class="cv-list">
+            {{ range .items }}
+            <li class="cv-entry">
+              <div class="cv-entry-period">{{ .period }}</div>
+              <div class="cv-entry-body">
+                <strong class="cv-entry-title">{{ .title }}</strong>
+                {{ with .institution }}<span class="cv-entry-institution">{{ . }}</span>{{ end }}
+                {{ with .description }}<p class="cv-entry-desc">{{ . }}</p>{{ end }}
+              </div>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      </div>
     </div>
     {{ end }}
     {{ with .Site.Params.cvFile }}

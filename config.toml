@@ -6,9 +6,8 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   name = "Sören Henning"
-  role = "Researcher"
+  role = "Senior Researcher"
   organization = "Dynatrace Research"
-  location = "Linz, Austria"
   email = "c29lcmVuLmhlbm5pbmdAZHluYXRyYWNlLmNvbQ=="
   bio = """
 I am a senior researcher at [Dynatrace Research](https://research.dynatrace.com), working at the intersection of software engineering, distributed systems, and data management. My research focuses on scalable and dependable software architectures, particularly for data-intensive applications in modern cloud environments.
@@ -38,22 +37,27 @@ What draws me most is how to build and run large-scale systems in practice: stre
     url = "#publications"
     weight = 2
   [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "#projects"
+    weight = 3
+  [[menu.main]]
     identifier = "talks"
     name = "Talks"
     url = "#talks"
-    weight = 3
+    weight = 4
   [[menu.main]]
     identifier = "theses"
     name = "Theses"
     url = "#theses"
-    weight = 4
+    weight = 5
   [[menu.main]]
     identifier = "service"
     name = "Service"
     url = "#service"
-    weight = 5
+    weight = 6
   [[menu.main]]
     identifier = "cv"
     name = "CV"
     url = "#cv"
-    weight = 6
+    weight = 7

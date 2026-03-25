@@ -1,0 +1,34 @@
+- name: "Theodolite: A framework for benchmarking scalability of cloud-native applications"
+  role: "Creator & Lead"
+  period: "2020–present"
+  url: "https://github.com/cau-se/theodolite"
+  description: >
+    Theodolite is an open-source benchmarking framework for evaluating the scalability of
+    cloud-native applications. It provides a systematic methodology and
+    tooling to benchmark systems deployed in Kubernetes, measuring how well they scale under
+    increasing load. Used in several research papers, particularly for stream processing systems.
+  tags: ["Benchmarking", "Kubernetes", "Cloud-Native", "Stream Processing"]
+
+- name: "ShuffleBench: A benchmark for large-scale shuffling operations in stream processing"
+  role: "Co-Creator & Researcher"
+  period: "2023–present"
+  url: "https://github.com/dynatrace-research/shufflebench"
+  description: >
+    ShuffleBench is a benchmark for evaluating distributed stream
+    processing frameworks in use cases where they primarily shuffle (i.e., re-distribute)
+    data records for state-local aggregations. Inspired by the requirements for large-scale,
+    near-real-time observability analytics, ShuffleBench measures latency, throughput, scalability,
+    and fault tolerance.
+  tags: ["Benchmarking", "Stream Processing", "Flink", "Kafka Streams", "Spark", "Hazelcast"]
+
+- name: "Titan Industrial DevOps platform for iterative process integration and automation"
+  role: "Researcher"
+  period: "2018–2021"
+  url: "https://github.com/cau-se/titan-ccp"
+  description: >
+    The Titan Industrial DevOps project aims at enabling continuous adaption and improvement
+    in industrial production systems by making industrial data available for various stakeholders.
+    The Titan Control Center is a scalable and extensible analytics platform for analyzing and
+    visualizing data from Industrial Internet of Things (IIoT) sensors such as electrical
+    power consumption in near-real time.
+  tags: ["Industrial DevOps", "Industry 4.0", "Power Consumption", "Event-Driven Microservices", "Stream Analytics"]
