@@ -1,1 +1,74 @@
 # Publications list
+# Fields: title, authors, venue, year, type, doi, pdf, slides, code, arxiv, abstract, url, featured
+# type options: Conference, Journal, Workshop, Demo, Poster
+# Bold your own name in authors by wrapping it in **double asterisks**
+# doi: just the DOI string (e.g. "10.1145/1234567.1234568"), not the full URL
+# featured: true — shown on the homepage; omit or set false for full list only
+
+- title: "When Should I Run My Application Benchmark?: Studying Cloud Performance Variability for the Case of Stream Processing Applications"
+  authors: "**Sören Henning**, Adriano Vogel, Esteban Perez-Wohlfeil, Otmar Ertl, Rick Rabiser"
+  venue: "FSE Companion '25: Proceedings of the 33rd ACM International Conference on the Foundations of Software Engineering"
+  year: 2025
+  type: Conference
+  doi: "10.1145/3696630.3728563"
+  featured: true
+  abstract: >
+    Performance benchmarking is a common practice in software engineering, particularly when building large-scale,
+    distributed, and data-intensive systems. While cloud environments offer several advantages for running benchmarks,
+    it is often reported that benchmark results can vary significantly between repetitions. In a longitudinal study
+    spanning more than three months, we repeatedly executed an application benchmark used in research and development
+    at Dynatrace, executing 2,366 benchmarks across 789 Kubernetes clusters on AWS. Our study confirms that
+    performance variability is less pronounced than often assumed (CV < 3.7%), and that for engineers focused on
+    detecting substantial differences (> 5%), variability and precise timing are far less critical.
+
+- title: "Benchmarking Scalability of Stream Processing Frameworks Deployed as Microservices in the Cloud"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Journal of Systems and Software, Volume 208"
+  year: 2024
+  type: Journal
+  doi: "10.1016/j.jss.2023.111879"
+  featured: true
+  abstract: >
+    We benchmark the scalability of five stream processing frameworks (Apache Flink, Kafka Streams, Hazelcast Jet,
+    and Apache Beam with Flink and Samza runners) deployed as microservices in Kubernetes. Using over 740 hours
+    of experiments in Google Cloud and a private cloud, we find that all frameworks exhibit approximately linear
+    scalability, but with considerable differences in resource demand. There is no clear superior framework;
+    the ranking depends on the use case. Using Apache Beam as an abstraction layer consistently comes with
+    significantly higher resource requirements.
+
+- title: "ShuffleBench: A Benchmark for Large-Scale Data Shuffling Operations with Distributed Stream Processing Frameworks"
+  authors: "**Sören Henning**, Adriano Vogel, Michael Leichtfried, Otmar Ertl, Rick Rabiser"
+  venue: "ICPE '24: Proceedings of the 15th ACM/SPEC International Conference on Performance Engineering"
+  year: 2024
+  type: Conference
+  doi: "10.1145/3629526.3645036"
+  featured: true
+  abstract: >
+    We introduce ShuffleBench, a benchmark for evaluating the performance of distributed stream processing
+    frameworks focusing on data shuffling (re-distributing records for state-local aggregations).
+    Inspired by real-world requirements for near real-time analytics at a large cloud observability platform,
+    ShuffleBench provides ready-to-use open-source tooling for Kubernetes and implementations for Flink,
+    Hazelcast, Kafka Streams, and Spark. Our experiments show that Flink achieves the highest throughput
+    while Hazelcast processes data streams with the lowest latency.
+
+- title: "A Configurable Method for Benchmarking Scalability of Cloud-Native Applications"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Empirical Software Engineering, Vol. 27, No. 6"
+  year: 2022
+  type: Journal
+  doi: "10.1007/s10664-022-10162-1"
+  featured: true
+
+- title: "Theodolite: Scalability Benchmarking of Distributed Stream Processing Engines in Microservice Architectures"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Big Data Research, Volume 25"
+  year: 2021
+  type: Journal
+  doi: "10.1016/j.bdr.2021.100209"
+  featured: true
+  abstract: >
+    We present Theodolite, the first method for benchmarking the scalability of distributed stream processing
+    engines used within microservices. The method defines use cases inspired by real Industrial Internet of Things
+    analytics scenarios and identifies relevant workload dimensions. We provide a cloud-native benchmarking
+    framework, benchmark implementations with Apache Kafka Streams and Apache Flink, and an experimental
+    evaluation of different deployment options.

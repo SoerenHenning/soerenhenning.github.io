@@ -1,10 +1,17 @@
-<section class="section" id="publications">
-  <div class="section-inner">
-    <h2 class="section-title">Selected Publications</h2>
-    {{ $pubs := where .Site.Data.publications "featured" true }}
+{{ define "main" }}
+<div class="publications-page page-main">
+  <div class="page-inner">
+    <h1 class="page-title">Publications</h1>
+
+    {{ $pubs := .Site.Data.publications }}
     {{ if $pubs }}
     <div class="pub-list">
+      {{ $prevYear := 0 }}
       {{ range $pubs }}
+      {{ if ne .year $prevYear }}
+      <h2 class="pub-year-heading">{{ .year }}</h2>
+      {{ end }}
+      {{ $prevYear = .year }}
       <article class="pub-entry">
         <div class="pub-meta">
           <span class="pub-year">{{ .year }}</span>
@@ -42,11 +49,9 @@
       </article>
       {{ end }}
     </div>
-    <div class="section-cta">
-      <a href="/publications/" class="btn btn--outline">View all publications &rarr;</a>
-    </div>
     {{ else }}
-    <p class="section-empty">Publications coming soon.</p>
+    <p>No publications available yet.</p>
     {{ end }}
   </div>
-</section>
+</div>
+{{ end }}
