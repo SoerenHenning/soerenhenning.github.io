@@ -1,0 +1,59 @@
+baseURL = "https://soerenhenning.github.io/"
+languageCode = "en-us"
+title = "Sören Henning"
+theme = "academic-portfolio"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  name = "Sören Henning"
+  role = "Researcher"
+  organization = "Dynatrace Research"
+  location = "Linz, Austria"
+  email = "c29lcmVuLmhlbm5pbmdAZHluYXRyYWNlLmNvbQ=="
+  bio = """
+I am a senior researcher at [Dynatrace Research](https://research.dynatrace.com), working at the intersection of software engineering, distributed systems, and data management. My research focuses on scalable and dependable software architectures, particularly for data-intensive applications in modern cloud environments.
+
+What draws me most is how to build and run large-scale systems in practice: stream and event-driven processing, distributed deployments, and the observability needed to keep them understandable and operable. I enjoy connecting these topics to real platforms and tools such as Kubernetes, Kafka, and OpenTelemetry and then closing the loop with empirically grounded performance engineering, meaning careful measurement, benchmarking, and evaluation to understand trade-offs and design systems that hold up in the real world.
+"""
+  profileImage = "images/profile.jpg"
+  cvFile = "" # e.g. "files/cv.pdf" — set when you have a PDF
+
+  # Social links (set the ones you have)
+  googleScholar = "https://scholar.google.com/citations?user=YOURPROFILE"
+  orcid = "https://orcid.org/0000-0000-0000-0000"
+  github = "https://github.com/SoerenHenning"
+  linkedin = ""
+  twitter = ""
+  dblp = ""
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "#about"
+    weight = 1
+  [[menu.main]]
+    identifier = "publications"
+    name = "Publications"
+    url = "#publications"
+    weight = 2
+  [[menu.main]]
+    identifier = "talks"
+    name = "Talks"
+    url = "#talks"
+    weight = 3
+  [[menu.main]]
+    identifier = "theses"
+    name = "Theses"
+    url = "#theses"
+    weight = 4
+  [[menu.main]]
+    identifier = "service"
+    name = "Service"
+    url = "#service"
+    weight = 5
+  [[menu.main]]
+    identifier = "cv"
+    name = "CV"
+    url = "#cv"
+    weight = 6

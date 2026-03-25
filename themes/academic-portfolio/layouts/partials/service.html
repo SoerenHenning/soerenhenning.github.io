@@ -1,0 +1,27 @@
+<section class="section section--alt" id="service">
+  <div class="section-inner">
+    <h2 class="section-title">Scientific Community Service</h2>
+    {{ $service := .Site.Data.service }}
+    {{ if $service }}
+    <div class="service-grid">
+      {{ range $service }}
+      <div class="service-group">
+        <h3 class="service-group-title">{{ .category }}</h3>
+        <ul class="service-list">
+          {{ range .items }}
+          <li class="service-entry">
+            <span class="service-role">{{ .role }}</span>
+            <span class="service-venue">{{ .venue }}</span>
+            {{ with .years }}<span class="service-years">{{ . }}</span>{{ end }}
+            {{ with .year }}<span class="service-years">{{ . }}</span>{{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="section-empty">Service activities coming soon.</p>
+    {{ end }}
+  </div>
+</section>

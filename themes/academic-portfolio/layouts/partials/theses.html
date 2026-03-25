@@ -1,0 +1,38 @@
+<section class="section" id="theses">
+  <div class="section-inner">
+    <h2 class="section-title">Supervised Theses</h2>
+    {{ $theses := .Site.Data.theses }}
+    {{ if $theses }}
+    <div class="thesis-list">
+      {{ range $theses }}
+      <article class="thesis-entry">
+        <div class="thesis-meta">
+          <span class="thesis-year">{{ .year }}</span>
+          {{ with .type }}<span class="thesis-type">{{ . }}</span>{{ end }}
+        </div>
+        <div class="thesis-body">
+          <h3 class="thesis-title">
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+            {{ else }}
+            {{ .title }}
+            {{ end }}
+          </h3>
+          <p class="thesis-student">
+            <span class="thesis-student-label">Student:</span> {{ .student }}
+          </p>
+          {{ with .institution }}
+          <p class="thesis-institution">{{ . }}</p>
+          {{ end }}
+          {{ with .cosupervisors }}
+          <p class="thesis-cosup">Co-supervised with: {{ . }}</p>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="section-empty">Supervised theses coming soon.</p>
+    {{ end }}
+  </div>
+</section>

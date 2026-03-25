@@ -1,0 +1,32 @@
+<section class="section section--alt" id="talks">
+  <div class="section-inner">
+    <h2 class="section-title">Talks &amp; Presentations</h2>
+    {{ $talks := .Site.Data.talks }}
+    {{ if $talks }}
+    <div class="talk-list">
+      {{ range $talks }}
+      <article class="talk-entry">
+        <div class="talk-meta">
+          <span class="talk-date">{{ .date | dateFormat "Jan 2006" }}</span>
+          {{ with .type }}<span class="talk-type">{{ . }}</span>{{ end }}
+        </div>
+        <div class="talk-body">
+          <h3 class="talk-title">{{ .title }}</h3>
+          <p class="talk-event">
+            <em>{{ .event }}</em>
+            {{ with .location }}, {{ . }}{{ end }}
+          </p>
+          <div class="talk-links">
+            {{ with .slides }}<a class="pub-link pub-link--slides" href="{{ . }}" target="_blank" rel="noopener noreferrer">Slides</a>{{ end }}
+            {{ with .video }}<a class="pub-link pub-link--video" href="{{ . }}" target="_blank" rel="noopener noreferrer">Video</a>{{ end }}
+            {{ with .doi }}<a class="pub-link pub-link--doi" href="https://doi.org/{{ . }}" target="_blank" rel="noopener noreferrer">DOI</a>{{ end }}
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="section-empty">Talks coming soon.</p>
+    {{ end }}
+  </div>
+</section>

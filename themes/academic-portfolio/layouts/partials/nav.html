@@ -1,0 +1,17 @@
+<nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">{{ .Site.Params.name }}</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu" role="menubar">
+      {{ range .Site.Menus.main }}
+      <li role="none">
+        <a class="nav-link" href="{{ .URL }}" role="menuitem">{{ .Name }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</nav>

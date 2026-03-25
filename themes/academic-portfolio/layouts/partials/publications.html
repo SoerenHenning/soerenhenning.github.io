@@ -1,0 +1,49 @@
+<section class="section" id="publications">
+  <div class="section-inner">
+    <h2 class="section-title">Publications</h2>
+    {{ $pubs := .Site.Data.publications }}
+    {{ if $pubs }}
+    <div class="pub-list">
+      {{ range $pubs }}
+      <article class="pub-entry">
+        <div class="pub-meta">
+          <span class="pub-year">{{ .year }}</span>
+          {{ with .type }}<span class="pub-type pub-type--{{ . | lower | replaceRE " " "-" }}">{{ . }}</span>{{ end }}
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title">
+            {{ if .doi }}
+            <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+            {{ else if .url }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+            {{ else }}
+            {{ .title }}
+            {{ end }}
+          </h3>
+          <p class="pub-authors">{{ .authors | markdownify }}</p>
+          <p class="pub-venue">
+            <em>{{ .venue }}</em>
+            {{ with .location }}, {{ . }}{{ end }}
+          </p>
+          {{ with .abstract }}
+          <details class="pub-abstract">
+            <summary>Abstract</summary>
+            <p>{{ . }}</p>
+          </details>
+          {{ end }}
+          <div class="pub-links">
+            {{ with .doi }}<a class="pub-link pub-link--doi" href="https://doi.org/{{ . }}" target="_blank" rel="noopener noreferrer">DOI</a>{{ end }}
+            {{ with .pdf }}<a class="pub-link pub-link--pdf" href="{{ . }}" target="_blank" rel="noopener noreferrer">PDF</a>{{ end }}
+            {{ with .slides }}<a class="pub-link pub-link--slides" href="{{ . }}" target="_blank" rel="noopener noreferrer">Slides</a>{{ end }}
+            {{ with .code }}<a class="pub-link pub-link--code" href="{{ . }}" target="_blank" rel="noopener noreferrer">Code</a>{{ end }}
+            {{ with .arxiv }}<a class="pub-link pub-link--arxiv" href="https://arxiv.org/abs/{{ . }}" target="_blank" rel="noopener noreferrer">arXiv</a>{{ end }}
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="section-empty">Publications coming soon.</p>
+    {{ end }}
+  </div>
+</section>

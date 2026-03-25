@@ -1,0 +1,17 @@
+# Hugo build outputs
+/public/
+/resources/
+.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (not needed for this theme, but just in case)
+node_modules/
