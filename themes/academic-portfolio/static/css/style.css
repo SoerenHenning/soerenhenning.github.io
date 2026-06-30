@@ -277,62 +277,109 @@ img { max-width: 100%; display: block; }
 .about-content p { margin-bottom: 1em; }
 .about-content a { font-weight: 700; }
 
-/* ── Publications ─────────────────────────────────────────── */
-.pub-list { display: flex; flex-direction: column; gap: 28px; }
+/* ── Publications, Talks, Theses, Projects — shared structure */
 
-.pub-entry {
+/* List containers */
+.pub-list,
+.talk-list,
+.thesis-list,
+.project-list    { display: flex; flex-direction: column; }
+.pub-list        { gap: 28px; }
+.talk-list       { gap: 24px; }
+.thesis-list,
+.project-list    { gap: 20px; }
+
+/* Entry rows */
+.pub-entry,
+.talk-entry,
+.thesis-entry {
   display: flex;
   gap: 20px;
-  padding-bottom: 28px;
   border-bottom: 1px solid var(--color-border);
 }
-.pub-entry:last-child { border-bottom: none; padding-bottom: 0; }
+.pub-entry    { padding-bottom: 28px; }
+.talk-entry   { padding-bottom: 24px; }
+.thesis-entry { padding-bottom: 20px; }
+.pub-entry:last-child,
+.talk-entry:last-child,
+.thesis-entry:last-child { border-bottom: none; padding-bottom: 0; }
 
-.pub-meta {
+/* Meta columns (year + badge, right-aligned) */
+.pub-meta,
+.talk-meta,
+.thesis-meta {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 6px;
-  min-width: 72px;
   padding-top: 2px;
 }
+.pub-meta    { min-width: 72px; }
+.talk-meta   { min-width: 88px; }
+.thesis-meta { min-width: 60px; }
 
-.pub-year {
+/* Body columns */
+.pub-body,
+.talk-body,
+.thesis-body,
+.project-header-text { flex: 1; min-width: 0; }
+
+/* Year / date labels */
+.pub-year,
+.talk-date,
+.thesis-year {
   font-size: 0.9rem;
   font-weight: 800;
   color: var(--color-primary);
 }
+.talk-date { white-space: nowrap; }
 
-.pub-type {
+/* Type badges */
+.pub-type,
+.talk-type,
+.thesis-type {
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 2px 8px;
   border-radius: 100px;
-  background: var(--color-bg-alt);
-  color: var(--color-subtle);
   white-space: nowrap;
 }
+.pub-type   { background: var(--color-bg-alt); color: var(--color-subtle); }
 .pub-type--conference  { background: #dbeafe; color: #1e40af; }
 .pub-type--journal     { background: #dcfce7; color: #166534; }
 .pub-type--workshop    { background: #fef9c3; color: #854d0e; }
 .pub-type--demo        { background: #ede9fe; color: #5b21b6; }
 .pub-type--poster      { background: #fce7f3; color: #9d174d; }
+.talk-type  { background: #fef9c3; color: #854d0e; }
+.thesis-type { background: #ede9fe; color: #5b21b6; }
 
-.pub-body { flex: 1; min-width: 0; }
-
-.pub-title {
-  font-size: 1.0rem;
+/* Entry titles */
+.pub-title,
+.talk-title,
+.thesis-title {
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-text);
   margin-bottom: 4px;
-  line-height: 1.4;
 }
-.pub-title a { color: var(--color-text); }
-.pub-title a:hover { color: var(--color-accent); }
+.pub-title { line-height: 1.4; }
+.pub-title a,
+.thesis-title a { color: var(--color-text); }
+.pub-title a:hover,
+.thesis-title a:hover { color: var(--color-accent); }
 
+/* Venue / event subtitles */
+.pub-venue,
+.talk-event {
+  font-size: 0.88rem;
+  color: var(--color-subtle);
+  margin-bottom: 8px;
+}
+
+/* ── Publications ─────────────────────────────────────────── */
 .pub-authors {
   font-size: 0.9rem;
   color: var(--color-subtle);
@@ -340,12 +387,6 @@ img { max-width: 100%; display: block; }
 }
 /* Bold the owner's name */
 .pub-authors strong { color: var(--color-text); font-weight: 700; }
-
-.pub-venue {
-  font-size: 0.88rem;
-  color: var(--color-subtle);
-  margin-bottom: 8px;
-}
 
 .pub-abstract {
   margin: 8px 0;
@@ -389,64 +430,9 @@ img { max-width: 100%; display: block; }
 .pub-link:hover   { filter: brightness(0.88); transform: translateY(-1px); }
 
 /* ── Talks ────────────────────────────────────────────────── */
-.talk-list { display: flex; flex-direction: column; gap: 24px; }
-
-.talk-entry {
-  display: flex;
-  gap: 20px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--color-border);
-}
-.talk-entry:last-child { border-bottom: none; padding-bottom: 0; }
-
-.talk-meta {
-  flex-shrink: 0;
-  min-width: 88px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-  padding-top: 2px;
-}
-
-.talk-date {
-  font-size: 0.88rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  white-space: nowrap;
-}
-
-.talk-type {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 2px 8px;
-  border-radius: 100px;
-  background: #fef9c3;
-  color: #854d0e;
-}
-
-.talk-body  { flex: 1; min-width: 0; }
-
-.talk-title {
-  font-size: 1.0rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 4px;
-}
-
-.talk-event {
-  font-size: 0.88rem;
-  color: var(--color-subtle);
-  margin-bottom: 8px;
-}
-
 .talk-links { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* ── Projects ─────────────────────────────────────────────── */
-.project-list { display: flex; flex-direction: column; gap: 20px; }
-
 .project-card {
   background: var(--color-white);
   border: 1px solid var(--color-border);
@@ -466,8 +452,6 @@ img { max-width: 100%; display: block; }
   gap: 16px;
   margin-bottom: 10px;
 }
-
-.project-header-text { flex: 1; min-width: 0; }
 
 .project-name {
   font-size: 1.05rem;
@@ -517,56 +501,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--color-border);
 }
 
-/* ── Theses ───────────────────────────────────────────────── */
-.thesis-list { display: flex; flex-direction: column; gap: 20px; }
-
-.thesis-entry {
-  display: flex;
-  gap: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--color-border);
-}
-.thesis-entry:last-child { border-bottom: none; padding-bottom: 0; }
-
-.thesis-meta {
-  flex-shrink: 0;
-  min-width: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-  padding-top: 2px;
-}
-
-.thesis-year {
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--color-primary);
-}
-
-.thesis-type {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 2px 8px;
-  border-radius: 100px;
-  background: #ede9fe;
-  color: #5b21b6;
-  white-space: nowrap;
-}
-
-.thesis-body  { flex: 1; min-width: 0; }
-
-.thesis-title {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 4px;
-}
-.thesis-title a { color: var(--color-text); }
-.thesis-title a:hover { color: var(--color-accent); }
-
+/* ── Theses — specific ────────────────────────────────────── */
 .thesis-student {
   font-size: 0.88rem;
   color: var(--color-subtle);
@@ -579,21 +514,22 @@ img { max-width: 100%; display: block; }
   color: var(--color-subtle);
 }
 
+/* ── Service & CV — subgroup headings ────────────────────── */
+.service-group-title,
+.cv-group-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
 /* ── Service ──────────────────────────────────────────────── */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 32px 48px;
-}
-
-.service-group-title {
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--color-bg-alt);
-  border-bottom-color: var(--color-border);
 }
 
 .service-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
@@ -636,15 +572,6 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   gap: 36px;
-}
-
-.cv-group-title {
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  margin-bottom: 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--color-border);
 }
 
 .cv-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
@@ -800,7 +727,7 @@ img { max-width: 100%; display: block; }
   display: inline-block;
   padding: 10px 24px;
   border-radius: 6px;
-  font-family: var(--font-body);
+  font-family: var(--font-family);
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
@@ -846,7 +773,7 @@ img { max-width: 100%; display: block; }
 .pub-year-heading {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-text-muted);
+  color: var(--color-subtle);
   border-bottom: 2px solid var(--color-border);
   padding-bottom: 8px;
   margin-bottom: 20px;
