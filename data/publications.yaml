@@ -5,21 +5,65 @@
 # doi: just the DOI string (e.g. "10.1145/1234567.1234568"), not the full URL
 # featured: true — shown on the homepage; omit or set false for full list only
 
+- title: "Performance Optimization in Stream Processing Systems: Experiment-Driven Configuration Tuning for Kafka Streams"
+  authors: "David Chen, **Sören Henning**, Kassiano Matteussi, Rick Rabiser"
+  venue: "9th Workshop on Hot Topics in Cloud Computing Performance (HotCloudPerf 2026) at ACM/SPEC ICPE 2026"
+  year: 2026
+  type: Workshop
+  arxiv: "2603.04027"
+  abstract: >
+    Configuring stream processing systems for efficient performance, especially in cloud-native deployments, is a challenging and largely manual task. We present an experiment-driven approach for automated configuration optimization that combines three phases: Latin Hypercube Sampling for initial exploration, Simulated Annealing for guided stochastic search, and Hill Climbing for local refinement. The workflow is integrated with the cloud-native Theodolite benchmarking framework, enabling automated experiment orchestration on Kubernetes and early termination of underperforming configurations. In an experimental evaluation with Kafka Streams and a Kubernetes-based cloud testbed, our approach identifies configurations that improve throughput by up to 23% over the default. The results indicate that Latin Hypercube Sampling with early termination and Simulated Annealing are particularly effective in navigating the configuration space, whereas additional fine-tuning via Hill Climbing yields limited benefits.
+
+- title: "FluxSieve: Unifying Streaming and Analytical Data Planes for Scalable Cloud Observability"
+  authors: "Adriano Vogel, **Sören Henning**, Otmar Ertl"
+  venue: "arXiv preprint arXiv:2603.04937"
+  year: 2026
+  type: Preprint
+  arxiv: "2603.04937"
+  abstract: >
+    Despite many advances in query optimization, indexing techniques, and data storage, modern data platforms still face difficulties in delivering robust query performance under high concurrency and computationally intensive queries. This challenge is particularly pronounced in large-scale observability platforms handling high-volume, high-velocity data records. For instance, recurrent, expensive filtering queries at query time impose substantial computational and storage overheads in the analytical data plane. In this paper, we propose FluxSieve, a unified architecture that reconciles traditional pull-based query processing with push-based stream processing by embedding a lightweight in-stream precomputation and filtering layer directly into the data ingestion path. This avoids the complexity and operational burden of running queries in dedicated stream processing frameworks. Concretely, this work (i) introduces a foundational architecture that unifies streaming and analytical data planes via in-stream filtering and records enrichment, (ii) designs a scalable multi-pattern matching mechanism that supports concurrent evaluation and on-the-fly updates of filtering rules with minimal per-record overhead, (iii) demonstrates how to integrate this ingestion-time processing with two open-source analytical systems -- Apache Pinot as a Real-Time Online Analytical Processing (RTOLAP) engine and DuckDB as an embedded analytical database, and (iv) performs comprehensive experimental evaluation of our approach. Our evaluation across different systems, query types, and performance metrics shows up to orders-of-magnitude improvements in query performance at the cost of negligible additional storage and very low computational overhead.
+
 - title: "When Should I Run My Application Benchmark?: Studying Cloud Performance Variability for the Case of Stream Processing Applications"
   authors: "**Sören Henning**, Adriano Vogel, Esteban Perez-Wohlfeil, Otmar Ertl, Rick Rabiser"
-  venue: "FSE Companion '25: Proceedings of the 33rd ACM International Conference on the Foundations of Software Engineering"
+  venue: "33rd ACM International Conference on the Foundations of Software Engineering (FSE 2025)"
   year: 2025
   type: Conference
   doi: "10.1145/3696630.3728563"
+  arxiv: "2504.11826"
   featured: true
   abstract: >
-    Performance benchmarking is a common practice in software engineering, particularly when building large-scale,
-    distributed, and data-intensive systems. While cloud environments offer several advantages for running benchmarks,
-    it is often reported that benchmark results can vary significantly between repetitions. In a longitudinal study
-    spanning more than three months, we repeatedly executed an application benchmark used in research and development
-    at Dynatrace, executing 2,366 benchmarks across 789 Kubernetes clusters on AWS. Our study confirms that
-    performance variability is less pronounced than often assumed (CV < 3.7%), and that for engineers focused on
-    detecting substantial differences (> 5%), variability and precise timing are far less critical.
+    Performance benchmarking is a common practice in software engineering, particularly when building large-scale, distributed, and data-intensive systems. While cloud environments offer several advantages for running benchmarks, it is often reported that benchmark results can vary significantly between repetitions—making it difficult to draw reliable conclusions about real-world performance.
+    In this paper, we empirically quantify the impact of cloud performance variability on benchmarking results, focusing on stream processing applications as a representative type of data-intensive, performance-critical system. In a longitudinal study spanning more than three months, we repeatedly executed an application benchmark used in research and development at Dynatrace. This allows us to assess various aspects of performance variability, particularly concerning temporal effects. With approximately 591 hours of experiments, deploying 789 Kubernetes clusters on AWS and executing 2 366 benchmarks, this is likely the largest study of its kind and the only one addressing performance from an end-to-end, i.e., application benchmark perspective.
+    Our study confirms that performance variability exists, but it is less pronounced than often assumed (coefficient of variation of < 3.7%). Unlike related studies, we find that performance does exhibit a daily and weekly pattern, although with only small variability (≤ 2.5%). Re-using benchmarking infrastructure across multiple repetitions introduces only a slight reduction in result accuracy (≤ 2.5 percentage points). These key observations hold consistently across different cloud regions and machine types with different processor architectures. We conclude that for engineers and researchers focused on detecting substantial performance differences (e.g., > 5%) in their application benchmarks, which is often the case in software engineering practice, performance variability and the precise timing of experiments are far less critical.
+
+- title: "Analyzing Logs of Large-Scale Software Systems Using Time Curves Visualization"
+  authors: "Dmytro Borysenkov, Adriano Vogel, **Sören Henning**, Esteban Perez-Wohlfeil"
+  venue: "IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER 2025)"
+  year: 2025
+  type: Conference
+  doi: 10.1109/SANER64311.2025.00038
+  arxiv: "2411.05533"
+  abstract: >
+    Logs are crucial for analyzing large-scale software systems, offering insights into system health, performance, security threats, potential bugs, etc. However, their chaotic na-ture-characterized by sheer volume, lack of standards, and variability-makes manual analysis complex. The use of clustering algorithms can assist by grouping logs into a smaller set of templates, but lose the temporal and relational context in doing so. On the contrary, Large Language Models (LLMs) can provide meaningful explanations but struggle with processing large collections efficiently. Moreover, representation techniques for both approaches are typically limited to either plain text or traditional charting, especially when dealing with large-scale systems. In this paper, we combine clustering and LLM summarization with event detection and Multidimensional Scaling through the use of Time Curves to produce a holistic pipeline that enables efficient and automatic summarization of vast collections of software system logs. The core of our approach is the proposal of a semimetric distance that effectively measures similarity between events, thus enabling a meaningful representation. We show that our method, based on logs collected from different applications, can explain the behavior of a system over time without prior knowledge. We also show how the approach can be used to detect general trends as well as outliers in parallel and distributed systems by overlapping multiple projections. As a result, we expect a significant reduction in the time required to analyze system-wide issues, identify performance bottlenecks and security risks, debug applications, etc.
+
+- title: "Should I Run My Cloud Benchmark on Black Friday?"
+  authors: "**Sören Henning**, Adriano Vogel, Esteban Perez-Wohlfeil, Otmar Ertl, Rick Rabiser"
+  venue: "Softwaretechnik-Trends, Vol. 44, No. 2"
+  year: 2025
+  type: Journal
+  pdf: https://dl.gi.de/items/9323c23f-3de2-4a6c-bf7e-a3cefef6bebd
+  arxiv: "2510.12397"
+  abstract: >
+    Benchmarks and performance experiments are frequently conducted in cloud environments. However, their results are often treated with caution, as the presumed high variability of performance in the cloud raises concerns about reproducibility and credibility. In a recent study, we empirically quantified the impact of this variability on benchmarking results by repeatedly executing a stream processing application benchmark at different times of the day over several months. Our analysis confirms that performance variability is indeed observable at the application level, although it is less pronounced than often assumed. The larger scale of our study compared to related work allowed us to identify subtle daily and weekly performance patterns. We now extend this investigation by examining whether a major global event, such as Black Friday, affects the outcomes of performance benchmarks.
+
+- title: "Benchmarking Pattern Matching Strategies for Scalable Log Analytics"
+  authors: "Luka Leko, **Sören Henning**, Adriano Vogel, Otmar Ertl, Rick Rabiser"
+  venue: "Softwaretechnik-Trends, Vol. 44, No. 2"
+  year: 2025
+  type: Journal
+  pdf: https://dl.gi.de/items/5e1afe24-f7af-4dd9-967e-0ab3b66f192f
+  abstract: >
+    High-performance pattern matching on data streams is a critical capability for many large-scale, real-time systems. It can be used to identify patterns in vast volumes of unstructured data such as logs, as well as to quickly find anomalies or potentially harmful patterns. In this paper, we present our prototype of a benchmark for different matching strategies:(1) a dedicated pattern matching engine such as Hyperscan adapted for a streaming context; and (2) custom solutions using OLAP (Online Analytical Processing) databases like Apache Pinot or ClickHouse, where the database ingests from a data stream and stores the data, which can later be queried. We evaluate the approaches across different performance dimensions, including throughput and scalability. We use the Theodolite benchmarking framework to ensure reproducibility and configurability of the benchmarks. The goal of our benchmark is to make a fair comparison between specialized in-stream microservices optimized for pattern matching and a more general-purpose data analytics infrastructure that offers flexibility and extensibility.
 
 - title: "Benchmarking Scalability of Stream Processing Frameworks Deployed as Microservices in the Cloud"
   authors: "**Sören Henning**, Wilhelm Hasselbring"
@@ -27,21 +71,18 @@
   year: 2024
   type: Journal
   doi: "10.1016/j.jss.2023.111879"
+  arxiv: "2303.11088"
   featured: true
   abstract: >
-    We benchmark the scalability of five stream processing frameworks (Apache Flink, Kafka Streams, Hazelcast Jet,
-    and Apache Beam with Flink and Samza runners) deployed as microservices in Kubernetes. Using over 740 hours
-    of experiments in Google Cloud and a private cloud, we find that all frameworks exhibit approximately linear
-    scalability, but with considerable differences in resource demand. There is no clear superior framework;
-    the ranking depends on the use case. Using Apache Beam as an abstraction layer consistently comes with
-    significantly higher resource requirements.
+    Context: The combination of distributed stream processing with microservice architectures is an emerging pattern for building data-intensive software systems. In such systems, stream processing frameworks such as Apache Flink, Apache Kafka Streams, Apache Samza, Hazelcast Jet, or the Apache Beam SDK are used inside microservices to continuously process massive amounts of data in a distributed fashion. While all of these frameworks promote scalability as a core feature, there is only little empirical research evaluating and comparing their scalability. Objective: The goal of this study to obtain evidence about the scalability of state-of-the-art stream processing framework in different execution environments and regarding different scalability dimensions. Method: We benchmark five modern stream processing frameworks regarding their scalability using a systematic method. We conduct over 740 hours of experiments on Kubernetes clusters in the Google cloud and in a private cloud, where we deploy up to 110 simultaneously running microservice instances, which process up to one million messages per second. Results: All benchmarked frameworks exhibit approximately linear scalability as long as sufficient cloud resources are provisioned. However, the frameworks show considerable differences in the rate at which resources have to be added to cope with increasing load. There is no clear superior framework, but the ranking of the frameworks depends on the use case. Using Apache Beam as an abstraction layer still comes at the cost of significantly higher resource requirements regardless of the use case. We observe our results regardless of scaling load on a microservice, scaling the computational work performed inside the microservice, and the selected cloud environment. Moreover, vertical scaling can be a complementary measure to achieve scalability of stream processing frameworks.
 
 - title: "ShuffleBench: A Benchmark for Large-Scale Data Shuffling Operations with Distributed Stream Processing Frameworks"
   authors: "**Sören Henning**, Adriano Vogel, Michael Leichtfried, Otmar Ertl, Rick Rabiser"
-  venue: "ICPE '24: Proceedings of the 15th ACM/SPEC International Conference on Performance Engineering"
+  venue: "15th ACM/SPEC International Conference on Performance Engineering (ICPE 2024)"
   year: 2024
   type: Conference
   doi: "10.1145/3629526.3645036"
+  arxiv: "2403.04570"
   featured: true
   abstract: >
     We introduce ShuffleBench, a benchmark for evaluating the performance of distributed stream processing
@@ -51,6 +92,93 @@
     Hazelcast, Kafka Streams, and Spark. Our experiments show that Flink achieves the highest throughput
     while Hazelcast processes data streams with the lowest latency.
 
+- title: "A Comprehensive Benchmarking Analysis of Fault Recovery in Stream Processing Frameworks"
+  authors: "Adriano Vogel, **Sören Henning**, Esteban Perez-Wohlfeil, Otmar Ertl, Rick Rabiser"
+  venue: "18th ACM International Conference on Distributed and Event-based Systems (DEBS 2024)"
+  year: 2024
+  type: Conference
+  doi: 10.1145/3629104.3666040
+  arxiv: "2404.06203"
+  abstract: >
+    Nowadays, several software systems rely on stream processing architectures to deliver scalable performance and handle large volumes of data in near real-time. Stream processing frameworks facilitate scalable computing by distributing the application's execution across multiple machines. Despite performance being extensively studied, the measurement of fault tolerance---a key feature offered by stream processing frameworks---has still not been measured properly with updated and comprehensive testbeds. Moreover, the impact that fault recovery can have on performance is mostly ignored. This paper provides a comprehensive analysis of fault recovery performance, stability, and recovery time in a cloud-native environment with modern open-source frameworks, namely Flink, Kafka Streams, and Spark Structured Streaming. Our benchmarking analysis is inspired by chaos engineering to inject failures. Generally, our results indicate that much has changed compared to previous studies on fault recovery in distributed stream processing. In particular, the results indicate that Flink is the most stable and has one of the best fault recovery. Moreover, Kafka Streams shows performance instabilities after failures, which is due to its current rebalancing strategy that can be suboptimal in terms of load balancing. Spark Structured Streaming shows suitable fault recovery performance and stability, but with higher event latency. Our study intends to (i) help industry practitioners in choosing the most suitable stream processing framework for efficient and reliable executions of data-intensive applications; (ii) support researchers in applying and extending our research method as well as our benchmark; (iii) identify, prevent, and assist in solving potential issues in production deployments.
+
+- title: "Scalability Benchmarking of Cloud-Native Applications: The Theodolite Approach"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Softwaretechnik-Trends, Vol. 44, No. 2"
+  year: 2024
+  type: Journal
+  pdf: https://dl.gi.de/items/cbcd658b-6a2f-47f6-9155-e972a5b00ef7
+  abstract: >
+    Scalability is a driving requirement for many software systems, especially for those designed as cloud-native applications and event-driven microservices. Empirically evaluating and comparing the scalability of such applications is therefore of great interest for software engineers, architects, and researchers. In this summary, we outline the thesis Scalability Benchmarking of Cloud-Native Applications Applied to Event Driven Microservices, which presents and evaluates Theodolite, our scalability benchmarking method for cloud-native applications along with specific scalability benchmarks for event-driven microservices.
+
+- title: "High-level Stream Processing: A Complementary Analysis of Fault Recovery"
+  authors: "Adriano Vogel, **Sören Henning**, Esteban Perez-Wohlfeil, Otmar Ertl, Rick Rabiser"
+  venue: "arXiv preprint arXiv:2405.07917"
+  year: 2024
+  type: Preprint
+  arxiv: "2405.07917"
+  abstract: >
+    Parallel computing is very important to accelerate the performance of software systems. Additionally, considering that a recurring challenge is to process high data volumes continuously, stream processing emerged as a paradigm and software architectural style. Several software systems rely on stream processing to deliver scalable performance, whereas open-source frameworks provide coding abstraction and high-level parallel computing. Although stream processing's performance is being extensively studied, the measurement of fault tolerance--a key abstraction offered by stream processing frameworks--has still not been adequately measured with comprehensive testbeds. In this work, we extend the previous fault recovery measurements with an exploratory analysis of the configuration space, additional experimental measurements, and analysis of improvement opportunities. We focus on robust deployment setups inspired by requirements for near real-time analytics of a large cloud observability platform. The results indicate significant potential for improving fault recovery and performance. However, these improvements entail grappling with configuration complexities, particularly in identifying and selecting the configurations to be fine-tuned and determining the appropriate values for them. Therefore, new abstractions for transparent configuration tuning are also needed for large-scale industry setups. We believe that more software engineering efforts are needed to provide insights into potential abstractions and how to achieve them. The stream processing community and industry practitioners could also benefit from more interactions with the high-level parallel programming community, whose expertise and insights on making parallel programming more productive and efficient could be extended.
+
+- title: "Scalability Benchmarking of Cloud-Native Applications Applied to Event-Driven Microservices"
+  authors: "**Sören Henning**"
+  venue: "Kiel University"
+  year: 2023
+  type: PhD Thesis
+  doi: "10.21941/kcss/2023/2"
+  abstract: >
+    Cloud-native applications constitute a recent trend for designing large-scale software systems. This thesis introduces the Theodolite benchmarking method, allowing researchers and practitioners to conduct empirical scalability evaluations of cloud-native applications, their frameworks, configurations, and deployments.
+    The benchmarking method is applied to event-driven microservices, a specific type of cloud-native applications that employ distributed stream processing frameworks to scale with massive data volumes. Extensive experimental evaluations benchmark and compare the scalability of various stream processing frameworks under different configurations and deployments, including different public and private cloud environments. These experiments show that the presented benchmarking method provides statistically sound results in an adequate amount of time. In addition, three case studies demonstrate that the Theodolite benchmarking method can be applied to a wide range of applications beyond stream processing.
+
+- title: "A systematic mapping of performance in distributed stream processing systems"
+  authors: "Adriano Vogel, **Sören Henning**, Otmar Ertl, Rick Rabiser"
+  venue: "49th Euromicro Conference on Software Engineering and Advanced Applications (SEAA 2023)"
+  year: 2023
+  type: Conference
+  doi: 10.1109/SEAA60479.2023.00052
+  pdf: https://epub.jku.at/urn/urn:nbn:at:at-ubl:3-21144
+  abstract: >
+    Several software systems are built upon stream processing architectures to process large amounts of data in near real-time. Today’s distributed stream processing systems (DSPSs) spread the processing among multiple machines to provide scalable performance. However, high-performance and Quality of Service (QoS) in distributed stream processing are challenging to predict, achieve, and maintain. While many studies focus on evaluating or improving the performance of stream processing, getting a comprehensive view of the current state of DSPSs and their performance in real-world deployments is challenging. In this paper, we present a systematic mapping study of the literature on DSPSs’ performance. We discuss existing challenges, the most used DSPSs, achieved performance, and future trends. Our results demonstrate that performance is still one of the major concerns in stream processing, with several solutions available and different outcomes regarding the metrics, execution environments, and use cases considered. Moreover, there is a need for better benchmarks and workloads as well as for performance improvements by increasing efficiency and utilizing modern hardware. Our study intends to help software engineering practitioners and researchers to understand how to choose the most suitable DSPS to build efficient data-intensive architectures.
+
+- title: "Benchmarking Stream Processing Frameworks for Large Scale Data Shuffling"
+  authors: "**Sören Henning**, Adriano Vogel, Michael Leichtfried, Otmar Ertl, Rick Rabiser"
+  venue: "Softwaretechnik-Trends, Vol. 43, No. 4"
+  year: 2023
+  type: Journal
+  pdf: https://dl.gi.de/items/594e1716-4701-4c32-9ae4-feec61c2bcf5
+  abstract: >
+    Distributed stream processing frameworks help building scalable and reliable applications that perform transformations and aggregations on continuous data streams. We outline our ongoing research on designing a new benchmark for distributed stream processing frameworks. In contrast to other benchmarks, it focuses on use cases where stream processing frameworks are mainly used for redistributing data records to perform state-local aggregations, while the actual aggregation logic is considered as black-box software components. We describe our benchmark architecture based on a real-world use case, show how we imple mented it with four state-of-the-art frameworks, and give an overview of initial experimental results.
+
+- title: "Benchmarking Function Hook Latency in Cloud-Native Environments"
+  authors: "Mario Kahlhofer, Patrick Kern, **Sören Henning**, Stefan Rass"
+  venue: "Softwaretechnik-Trends, Vol. 43, No. 4"
+  year: 2023
+  type: Journal
+  pdf: https://dl.gi.de/items/73aec08f-3e37-4f0d-87f8-2d985f60ec60
+  arxiv: "2310.12702"
+  abstract: >
+    Researchers and engineers are increasingly adopting cloud-native technologies for application development and performance evaluation. While this has improved the reproducibility of benchmarks in the cloud, the complexity of cloud-native environments makes it difficult to run benchmarks reliably. Cloud-native applications are often instrumented or altered at runtime, by dynamically patching or hooking them, which introduces a significant performance overhead. Our work discusses the benchmarking-related pitfalls of the dominant cloud-native technology, Kubernetes, and how they affect performance measurements of dynamically patched or hooked applications. We present recommendations to mitigate these risks and demonstrate how an improper experimental setup can negatively impact latency measurements.
+
+- title: "Benchmarking Scalability of Cloud-Native Applications"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Software Engineering 2023"
+  year: 2023
+  type: Conference
+  pdf: https://dl.gi.de/server/api/core/bitstreams/96e285ce-3521-41f1-82ff-0cc0b6629083/content
+  abstract: >
+    This contribution has been published in the journal Empirical Software Engineering
+    (Springer Nature) in 2022 [HH22], https://doi.org/10.1007/s10664-022-10162-1.
+
+- title: "Cloud-Native Scalability Benchmarking with Theodolite Applied to the TeaStore Benchmark"
+  authors: "**Sören Henning**, Benedikt Wetzel, Wilhelm Hasselbring"
+  venue: "Softwaretechnik-Trends, Vol. 43, No. 1"
+  year: 2023
+  type: Journal
+  pdf: https://dl.gi.de/items/477ebf76-7462-4d77-9774-d3965e7ec919
+  abstract: >
+    Theodolite is a framework for benchmarking the scalability of cloud-native applications such as microservices. It automates deployment and monitoring of a cloud-native application for different load intensities and provisioned cloud resources and assesses whether specified service level objectives (SLOs) are fulfilled.
+    Provided as a Kubernetes Operator, Theodolite integrates with the cloud-native ecosystem and runs existing deployment configurations of various systems under-test, load generators, and benchmarks. We givea presentation on Theodolite and exemplify its usage by benchmarking the scalability of the TeaStore microservice reference application.
+
 - title: "A Configurable Method for Benchmarking Scalability of Cloud-Native Applications"
   authors: "**Sören Henning**, Wilhelm Hasselbring"
   venue: "Empirical Software Engineering, Vol. 27, No. 6"
@@ -58,6 +186,27 @@
   type: Journal
   doi: "10.1007/s10664-022-10162-1"
   featured: true
+  abstract: >
+    Cloud-native applications constitute a recent trend for designing large-scale software systems. However, even though several cloud-native tools and patterns have emerged to support scalability, there is no commonly accepted method to empirically benchmark their scalability. In this study, we present a benchmarking method, allowing researchers and practitioners to conduct empirical scalability evaluations of cloud-native applications, frameworks, and deployment options. Our benchmarking method consists of scalability metrics, measurement methods, and an architecture for a scalability benchmarking tool, particularly suited for cloud-native applications. Following fundamental scalability definitions and established benchmarking best practices, we propose to quantify scalability by performing isolated experiments for different load and resource combinations, which asses whether specified service level objectives (SLOs) are achieved. To balance usability and reproducibility, our benchmarking method provides configuration options, controlling the trade-off between overall execution time and statistical grounding. We perform an extensive experimental evaluation of our method’s configuration options for the special case of event-driven microservices. For this purpose, we use benchmark implementations of the two stream processing frameworks Kafka Streams and Flink and run our experiments in two public clouds and one private cloud. We find that, independent of the cloud platform, it only takes a few repetitions (≤ 5) and short execution times (≤ 5 minutes) to assess whether SLOs are achieved. Combined with our findings from evaluating different search strategies, we conclude that our method allows to benchmark scalability in reasonable time.
+
+- title: "Streaming vs. Functions: A Cost Perspective on Cloud Event Processing"
+  authors: "Tobias Pfandzelter, **Sören Henning**, Trever Schirmer, Wilhelm Hasselbring, David Bermbach"
+  venue: "IEEE International Conference on Cloud Engineering (IC2E 2022)"
+  year: 2022
+  type: Conference
+  doi: 10.1109/IC2E55432.2022.00015
+  arxiv: "2204.11509"
+  abstract: >
+    In cloud event processing, data generated at the edge is processed in real-time by cloud resources. Both distributed stream processing (DSP) and Function-as-a-Service (FaaS) have been proposed to implement such event processing applications. FaaS emphasizes fast development and easy operation, while DSP emphasizes efficient handling of large data volumes. Despite their architectural differences, both can be used to model and implement loosely-coupled job graphs. In this paper, we consider the selection of FaaS and DSP from a cost perspective. We implement stateless and stateful workflows from the Theodolite benchmarking suite using cloud FaaS and DSP. In an extensive evaluation, we show how application type, cloud service provider, and runtime environment can influence the cost of application deployments and derive decision guidelines for cloud engineers.
+
+- title: "Demo Paper: Benchmarking Scalability of Cloud-Native Applications with Theodolite"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "IEEE International Conference on Cloud Engineering (IC2E 2022)"
+  year: 2022
+  type: Demo
+  doi: 10.1109/IC2E55432.2022.00037
+  abstract: >
+    Theodolite is a framework for benchmarking the scalability of cloud-native applications. It automates deployment and monitoring of a cloud-native application for different load intensities and provisioned cloud resources and assesses whether specified service level objectives (SLOs) are fulfilled. Provided as a Kubernetes Operator, Theodolite allows defining, sharing, and archiving benchmarks and experiment configurations in declarative files. We demonstrate Theodolite's benchmarking method and show how researchers and cloud engineers can execute existing scalability benchmarks or define new ones with Theodolite.
 
 - title: "Theodolite: Scalability Benchmarking of Distributed Stream Processing Engines in Microservice Architectures"
   authors: "**Sören Henning**, Wilhelm Hasselbring"
@@ -65,10 +214,170 @@
   year: 2021
   type: Journal
   doi: "10.1016/j.bdr.2021.100209"
+  arxiv: "2009.00304"
   featured: true
   abstract: >
-    We present Theodolite, the first method for benchmarking the scalability of distributed stream processing
-    engines used within microservices. The method defines use cases inspired by real Industrial Internet of Things
-    analytics scenarios and identifies relevant workload dimensions. We provide a cloud-native benchmarking
-    framework, benchmark implementations with Apache Kafka Streams and Apache Flink, and an experimental
-    evaluation of different deployment options.
+    Distributed stream processing engines are designed with a focus on scalability to process big data volumes in a continuous manner. We present the Theodolite method for benchmarking the scalability of distributed stream processing engines. Core of this method is the definition of use cases that microservices implementing stream processing have to fulfill. For each use case, our method identifies relevant workload dimensions that might affect the scalability of a use case. We propose to design one benchmark per use case and relevant workload dimension.
+    We present a general benchmarking framework, which can be applied to execute the individual benchmarks for a given use case and workload dimension. Our framework executes an implementation of the use case's dataflow architecture for different workloads of the given dimension and various numbers of processing instances. This way, it identifies how resources demand evolves with increasing workloads.
+    Within the scope of this paper, we present 4 identified use cases, derived from processing Industrial Internet of Things data, and 7 corresponding workload dimensions. We provide implementations of 4 benchmarks with Kafka Streams and Apache Flink as well as an implementation of our benchmarking framework to execute scalability benchmarks in cloud environments. We use both for evaluating the Theodolite method and for benchmarking Kafka Streams' and Flink's scalability for different deployment options.
+
+- title: "Goals and measures for analyzing power consumption data in manufacturing enterprises"
+  authors: "**Sören Henning**, Wilhelm Hasselbring, Heinz Burmester, Armin Möbius, Maik Wojcieszak"
+  venue: "Journal of Data, Information and Management, Vol. 3, No. 1"
+  year: 2021
+  type: Journal
+  doi: 10.1007/s42488-021-00043-5
+  arxiv: "2009.10369"
+  abstract: >
+    The Internet of Things adoption in the manufacturing industry allows enterprises to monitor their electrical power consumption in real time and at machine level. In this paper, we follow up on such emerging opportunities for data acquisition and show that analyzing power consumption in manufacturing enterprises can serve a variety of purposes. In two industrial pilot cases, we discuss how analyzing power consumption data can serve the goals reporting, optimization, fault detection, and predictive maintenance. Accompanied by a literature review, we propose to implement the measures real-time data processing, multi-level monitoring, temporal aggregation, correlation, anomaly detection, forecasting, visualization, and alerting in software to tackle these goals. In a pilot implementation of a power consumption analytics platform, we show how our proposed measures can be implemented with a microservice-based architecture, stream processing techniques, and the fog computing paradigm. We provide the implementations as open source as well as a public show case allowing to reproduce and extend our research.
+
+- title: "The Titan Control Center for Industrial DevOps analytics research"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Software Impacts, Vol. 7"
+  year: 2021
+  type: Journal
+  doi: 10.1016/j.simpa.2020.100050
+  abstract: >
+    The Titan Control Center is a software platform supporting research on industrial big data analytics. Building upon a scalable and extensible architecture, the Titan Control Center analyzes and visualizes data streams from Internet of Things sensors in industrial production. It performs different types of aggregations, correlation, forecasting, and anomaly detection to provide deeper insights into industrial production data for enabling Industrial DevOps. Furthermore, the Titan Control Center is used in research for implementing and evaluating novel approaches on multi-dimensional sensor data stream aggregation, as a reference platform for benchmarking scalability in modular analytics software, and for research on analyzing industrial energy consumption.
+
+- title: "Reproducible Benchmarking of Cloud-Native Applications with the Kubernetes Operator Pattern"
+  authors: "**Sören Henning**, Benedikt Wetzel, Wilhelm Hasselbring"
+  venue: "Symposium on Software Performance"
+  year: 2021
+  type: Conference
+  pdf: https://ceur-ws.org/Vol-3043/short5.pdf
+  abstract: >
+    https://ceur-ws.org/Vol-3043/short5.pdf
+
+- title: "How to Measure Scalability of Distributed Stream Processing Engines?"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Companion of the ACM/SPEC International Conference on Performance Engineering"
+  year: 2021
+  type: Workshop
+  doi: 10.1145/3447545.3451190
+  pdf: https://research.spec.org/icpe_proceedings/2021/companion/p85.pdf
+  abstract: >
+    Scalability is promoted as a key quality feature of modern big data stream processing engines. However, even though research made huge efforts to provide precise definitions and corresponding metrics for the term scalability, experimental scalability evaluations or benchmarks of stream processing engines apply different and inconsistent metrics. With this paper, we aim to establish general metrics for scalability of stream processing engines. Derived from common definitions of scalability in cloud computing, we propose two metrics: a load capacity function and a resource demand function. Both metrics relate provisioned resources and load intensities, while requiring specific service level objectives to be fulfilled. We show how these metrics can be employed for scalability benchmarking and discuss their advantages in comparison to other metrics, used for stream processing engines and other software systems.
+
+- title: "Scalable and Reliable Multi-dimensional Sensor Data Aggregation in Data Streaming Architectures"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Data-Enabled Discovery and Applications, Vol. 4, No. 5"
+  year: 2020
+  type: Journal
+  doi: 10.1007/s41688-020-00041-3
+  abstract: >
+    Ever-increasing amounts of data and requirements to process them in real time lead to more and more analytics platforms and software systems designed according to the concept of stream processing. A common area of application is processing continuous data streams from sensors, for example, IoT devices or performance monitoring tools. In addition to analyzing pure sensor data, analyses of data for entire groups of sensors often need to be performed. Therefore, data streams of the individual sensors have to be continuously aggregated to a data stream for a group. Motivated by a real-world application scenario of analyzing power consumption in Industry 4.0 environments, we propose that such a stream aggregation approach has to allow for aggregating sensors in hierarchical groups, support multiple such hierarchies in parallel, provide reconfiguration at runtime, and preserve the scalability and reliability qualities of stream processing techniques. We propose a stream processing architecture fulfilling these requirements, which can be integrated into existing big data architectures. As all state-of-the-art stream processing frameworks have to handle a trade-off between latency, resource-efficiency, and correctness, our proposed architecture can be configured for low latency and resource-efficient computation or for always ensuring correct results. To assist adopters in choosing appropriate configuration options, we provide an experimental comparison. We present a pilot implementation of our proposed architecture and show how it is used in industry. Furthermore, in experimental evaluations we show that our solution scales linearly with the amount of sensors and provides adequate reliability in the presence of faults.
+
+- title: "Complexity and Inapproximability Results for Parallel Task Scheduling and Strip Packing"
+  authors: "**Sören Henning**, Klaus Jansen, Malin Rau, Lars Schmarje"
+  venue: "Theory of Computing Systems, Vol. 64"
+  year: 2020
+  type: Journal
+  doi: 10.1007/s00224-019-09910-6
+  abstract: >
+    We study Parallel Task Scheduling Pm|sizej|Cmax with a constant number of machines. This problem is known to be strongly NP-complete for each m ≥ 5, while it is solvable in pseudo-polynomial time for each m ≤ 3.
+    We give a positive answer to the long-standing open question whether this problem is strongly NP-complete for m = 4. As a second result, we improve the lower bound of 12/11 for approximating pseudo-polynomial Strip Packing to 5/4.
+    Since the best known approximation algorithm for this problem has a ratio of 5/4 + ε, this result almost closes the gap between approximation ratio and inapproximability result. Both results are proved by a reduction from the strongly NP-complete problem 3-Partition.
+
+- title: "Toward Efficient Scalability Benchmarking of Event-Driven Microservice Architectures at Large Scale"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "Softwaretechnik-Trends, Vol. 40, No. 3"
+  year: 2020
+  type: Journal
+  pdf: https://dl.gi.de/items/565aceb8-1fd8-4908-820c-98d7e3e96319
+  abstract: >
+    Over the past years, an increase in software architectures containing microservices, which process data streams of a messaging system, can be observed. We present Theodolite, a method accompanied by an open source implementation for benchmarking the scalability of such microservices as well as their employed stream processing frameworks and deployment options. According to common scalability definitions, Theodolite provides detailed insights into how resource demands evolve with increasing load intensity. However, accurate and statistically rigorous insights come at the cost of long execution times, making it impracticable to execute benchmarks for large sets of systems under test. To overcome this limitation, we raise three research questions and propose a research agenda for executing scalability benchmarks more time-efficiently and, thus, for running scalability benchmarks at large scale.
+
+- title: "A Scalable Architecture for Power Consumption Monitoring in Industrial Production Environments"
+  authors: "**Sören Henning**, Wilhelm Hasselbring, Armin Möbius"
+  venue: "IEEE International Conference on Fog Computing (ICFC 2019)"
+  year: 2019
+  type: Conference
+  doi: 10.1109/ICFC.2019.00024
+  arxiv: "1907.01046"
+  abstract: >
+    Detailed knowledge about the electrical power consumption in industrial production environments is a prerequisite to reduce and optimize their power consumption. Today's industrial production sites are equipped with a variety of sensors that, inter alia, monitor electrical power consumption in detail. However, these environments often lack an automated data collation and analysis. We present a system architecture that integrates different sensors and analyzes and visualizes the power consumption of devices, machines, and production plants. It is designed with a focus on scalability to support production environments of various sizes and to handle varying loads. We argue that a scalable architecture in this context must meet requirements for fault tolerance, extensibility, real-time data processing, and resource efficiency. As a solution, we propose a microservice-based architecture augmented by big data and stream processing techniques. Applying the fog computing paradigm, parts of it are deployed in an elastic, central cloud while other parts run directly, decentralized in the production environment. A prototype implementation of this architecture presents solutions how different kinds of sensors can be integrated and their measurements can be continuously aggregated. In order to make analyzed data comprehensible, it features a single-page web application that provides different forms of data visualization. We deploy this pilot implementation in the data center of a medium-sized enterprise, where we successfully monitor the power consumption of 16 servers. Furthermore, we show the scalability of our architecture with 20,000 simulated sensors.
+
+- title: "Industrial DevOps"
+  authors: "Wilhelm Hasselbring, **Sören Henning**, Björn Latte, Armin Möbius, Thomas Richter, Stefan Schalk, Maik Wojcieszak"
+  venue: "IEEE International Conference on Software Architecture Companion (ICSA-C 2019)"
+  year: 2019
+  type: Workshop
+  doi: 10.1109/ICSA-C.2019.00029
+  abstract: >
+    The visions and ideas of Industry 4.0 require a profound interconnection of machines, plants, and IT systems in industrial production environments. This significantly increases the importance of software, which is coincidentally one of the main obstacles to the introduction of Industry 4.0. Lack of experience and knowledge, high investment and maintenance costs, as well as uncertainty about future developments cause many small and medium-sized enterprises hesitating to adopt Industry 4.0 solutions. We propose Industrial DevOps as an approach to introduce methods and culture of DevOps into industrial production environments. The fundamental concept of this approach is a continuous process of operation, observation, and development of the entire production environment. This way, all stakeholders, systems, and data can thus be integrated via incremental steps and adjustments can be made quickly. Furthermore, we present the Titan software platform accompanied by a role model for integrating production environments with Industrial DevOps. In two initial industrial application scenarios, we address the challenges of energy management and predictive maintenance with the methods, organizational structures, and tools of Industrial DevOps.
+
+- title: "Scalable and Reliable Multi-Dimensional Aggregation of Sensor Data Streams"
+  authors: "**Sören Henning**, Wilhelm Hasselbring"
+  venue: "IEEE International Conference on Big Data (Big Data 2019)"
+  year: 2019
+  type: Workshop
+  doi: 10.1109/BigData47090.2019.9006452
+  arxiv: "1911.06525"
+  abstract: >
+    Ever-increasing amounts of data and requirements to process them in real time lead to more and more analytics platforms and software systems being designed according to the concept of stream processing. A common area of application is the processing of continuous data streams from sensors, for example, IoT devices or performance monitoring tools. In addition to analyzing pure sensor data, analyses of data for groups of sensors often need to be performed as well. Therefore, data streams of the individual sensors have to be continuously aggregated to a data stream for a group. Motivated by a real-world application scenario, we propose that such a stream aggregation approach has to allow for aggregating sensors in hierarchical groups, support multiple such hierarchies in parallel, provide reconfiguration at runtime, and preserve the scalability and reliability qualities induced by applying stream processing techniques. We propose a stream processing architecture fulfilling these requirements, which can be integrated into existing big data architectures. We present a pilot implementation of such an extended architecture and show how it is used in industry. Furthermore, in experimental evaluations we show that our solution scales linearly with the amount of sensors and provides adequate reliability in the case of faults.
+
+- title: "Clean Code: On the Use of Practices and Tools to Produce Maintainable Code for Long-Living Software"
+  authors: "Björn Latte, **Sören Henning**, Maik Wojcieszak"
+  venue: "EMLS 2019: 6th Collaborative Workshop on Evolution and Maintenance of Long-Living Systems"
+  year: 2019
+  type: Workshop
+  pdf: https://ceur-ws.org/Vol-2308/emls2019paper01.pdf
+  abstract: >
+    Maintaining a long-living software system is substantially related to the quality of the code the system is built from. In this experience report we describe how a set of practices and tools has been established and used on the early stages of a project. The approach is based on Clean Code and the use of well known static code analysis tools. The Tools and practices have been used with an immediate effect of having cleaner code that is easier to understand in the long term. Additional attention is given to the cultural aspect that is involved in reaching a mindset that will allow to set and uphold code quality standards. Reaching a common understanding is a team effort that requires "leaving one's comfort zone". Finding common ground can significantly decide about failure or success in creating maintainable code.
+
+- title: "Monitoring Electrical Power Consumption with Kieker"
+  authors: "**Sören Henning**"
+  venue: "Softwaretechnik-Trends, Vol. 39, No. 3"
+  year: 2018
+  type: Journal
+  pdf: https://dl.gi.de/items/bf6d36c2-b795-4e03-bd94-76c257520d4a
+  abstract: >
+    Detailed knowledge about the electrical power consumption is a prerequisite for reducing it in manufacturing enterprises. Therefore, a continuous monitoring and analysis of the power usage of the overall business as well as of its individual devices, machines, and production plants is demanded. In this paper, we present an approach for such a monitoring infrastructure. It facilitates the integration of different types of sensors in order to make their measurements comparable. Automatically and in real time, it analyzes and visualizes recorded data in a number of ways. Supported by patterns and technologies for scalable, big data processing systems, this approach utilizes the software performance monitoring framework Kieker in large parts. We implement a prototype of this approach and inspect the power consumption of servers in a medium-sized enterprise.
+
+- title: "Prototype of a Scalable Monitoring Infrastructure for Industrial DevOps"
+  authors: "**Sören Henning**"
+  venue: "Kiel University, Department of Computer Science"
+  year: 2018
+  type: MSc Thesis
+  pdf: https://oceanrep.geomar.de/id/eprint/43910/
+  abstract: >
+    The digitalization of the conventional, manufacturing industry poses great opportunities but also challenges. As industrial devices, machines, and plants become more intelligent and autonomous, an increasing challenge for business enterprises is to connect and integrate them. This leads to the fact that software plays an increasing role in the daily production processes. In particular, small and medium-sized enterprises have to take high risks caused by high investment costs and a lack of experience in the development of distributed software systems. Agile and iterative methods, such as those that have long been common in other fields of IT, can be a solution to that. Industrial DevOps is an approach to apply those methods and bridge the gap between the development and the operation of software in industrial production environments. To facilitate this, development and operation are considered as a coherent, cyclic, and continuous process. Therefore, Industrial DevOps requires a continuously monitoring of all different aspects within a production.
+    In this thesis, we present an approach for a monitoring infrastructure for industrial production environments such as factories. It facilitates the integration of different types of sensors in order to make their measurements comparable. Automatically and in real time, recorded data is analyzed and visualized in a number of ways. Due to its microservice-based architecture, our monitoring infrastructure is designed to scale with the production size and to adapt to frequently changing requirements. This is supported by applying open source big data tools that have demonstrated their capabilities in similar challenges of Internet-scale systems. Moreover, to face the challenges of scalability and real-time data processing, our approach unites the principles of cloud and edge computing.
+    We implemented a prototype that covers all aspects of the designed architecture. This prototype is deployed in a medium-sized enterprise, where we monitored the electrical power consumption of a server, to show the feasibility of our approach. Furthermore, our approach shows scalability characteristics even though it is not always achieved reliably. Therefore, we present possible solutions to increase the reliability.
+
+- title: "RadarGun: Toward a Performance Testing Framework"
+  authors: "**Sören Henning**, Christian Wulf, Wilhelm Hasselbring"
+  venue: "Softwaretechnik-Trends, Vol. 37, No. 3"
+  year: 2017
+  type: Journal
+  pdf: https://dl.gi.de/items/63161db0-a246-4304-9617-966ebab6b898
+  abstract: >
+    We present requirements on a performance testing framework to distinguish it from a functional testing framework and a benchmarking framework. Based on these requirements, we propose such a performance testing framework for Java, called RadarGun. RadarGun can be included into a continuous integration server, such as Jenkins, so that performance tests are executed automatically during the build process. We conducted a feasibility evaluation of this approach by applying it to the continuous integration infrastructure of the Pipe-and-Filter framework TeeTime.
+
+- title: "Visualization of Performance Anomalies with Kieker"
+  authors: "**Sören Henning**"
+  venue: "Kiel University, Department of Computer Science"
+  year: 2016
+  type: BSc Thesis
+  pdf: https://oceanrep.geomar.de/id/eprint/34141/
+  abstract: >
+    Reliability and performance are significant and often necessary quality characteristics of
+    large software systems since these systems are often business-critical. Thus, continuous
+    monitoring as well as real-time analysis become more and more important to recognize
+    performance issues as soon as possible.
+    
+    In this thesis, we present an approach and a corresponding implementation to visualize
+    performance anomalies. Embedded in a web application, the visualization displays the
+    execution times of operation calls and highlights detected anomalies in real time and
+    interactively. Moreover, our approach utilizes the Kieker-based detection of anomalous
+    behavior, which relies on wide parts on the ΘPAD and ΘPADx approaches. However, we
+    had to customize these approaches to achieve an immediate analysis, which is required for
+    the real-time visualization. The anomaly detection procedure is based on a TeeTime
+    Pipe-and-Filter configuration and, in contrast to the monolithic ΘPAD and ΘPADx approaches,
+    uses a microservice architecture.
+
+    In a feasibility evaluation, we demonstrate that both the detection of performance
+    anomalies and their visualization work as expected. In a scalability evaluation, we show
+    that our approach scales well to a particular point. For a workload beyond that point, we
+    present solution approaches to increase the scalability.

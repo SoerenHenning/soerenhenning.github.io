@@ -6,9 +6,12 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   name = "Sören Henning"
-  role = "Senior Researcher"
+  role = "Researcher & TechEvangelist"
   organization = "Dynatrace Research"
   email = "c29lcmVuLmhlbm5pbmdAZHluYXRyYWNlLmNvbQ=="
+#  bio = """
+#I am a senior researcher at [Dynatrace Research](https://research.dynatrace.com), working at the intersection of software engineering, distributed systems, and data management. My research focuses on designing scalable, distributed software architectures, with particular interests in cloud computing, event and stream processing, as well as empirically grounded performance engineering.
+#"""
   bio = """
 I am a senior researcher at [Dynatrace Research](https://research.dynatrace.com), working at the intersection of software engineering, distributed systems, and data management. My research focuses on scalable and dependable software architectures, particularly for data-intensive applications in modern cloud environments.
 
@@ -18,10 +21,10 @@ What draws me most is how to build and run large-scale systems in practice: stre
   cvFile = "" # e.g. "files/cv.pdf" — set when you have a PDF
 
   # Social links (set the ones you have)
-  googleScholar = "https://scholar.google.com/citations?user=YOURPROFILE"
-  orcid = "https://orcid.org/0000-0000-0000-0000"
+  googleScholar = "https://scholar.google.com/citations?user=_YRDO-YAAAAJ"
+  orcid = "https://orcid.org/0000-0001-6912-2549"
   github = "https://github.com/SoerenHenning"
-  linkedin = ""
+  linkedin = "https://www.linkedin.com/in/soerenhenning"
   twitter = ""
   dblp = ""
 
@@ -29,35 +32,35 @@ What draws me most is how to build and run large-scale systems in practice: stre
   [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "#about"
+    url = "/#about"
     weight = 1
   [[menu.main]]
     identifier = "publications"
     name = "Publications"
-    url = "#publications"
+    url = "/#publications"
     weight = 2
   [[menu.main]]
     identifier = "projects"
     name = "Projects"
-    url = "#projects"
+    url = "/#projects"
     weight = 3
   [[menu.main]]
     identifier = "talks"
     name = "Talks"
-    url = "#talks"
+    url = "/#talks"
     weight = 4
   [[menu.main]]
     identifier = "theses"
     name = "Theses"
-    url = "#theses"
+    url = "/#theses"
     weight = 5
   [[menu.main]]
     identifier = "service"
     name = "Service"
-    url = "#service"
+    url = "/#service"
     weight = 6
   [[menu.main]]
     identifier = "cv"
     name = "CV"
-    url = "#cv"
+    url = "/#cv"
     weight = 7

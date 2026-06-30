@@ -1,1 +1,44 @@
 # Talks and presentations
+# Fields: title, event, location, date (YYYY-MM-DD), type, slides, video, doi
+
+- title: "Performance Optimization in Stream Processing Systems: Experiment-Driven Configuration Tuning for Kafka Streams "
+  event: "Workshop on Hot Topics in Cloud Computing Performance (at ACM/SPEC ICPE 2026)"
+  location: "Florence, Italy"
+  date: "2026-05-05"
+  type: Conference
+
+- title: "Should I Run My Cloud Benchmark on Black Friday?"
+  event: "Symposium on Software Performance"
+  location: "Kiel, Germany"
+  date: "2025-11-05"
+  type: Keynote
+
+- title: "Web Performance Measurements"
+  event: "Johannes Kepler University Linz, Web Performance lecture"
+  location: "Linz, Austria"
+  date: "2025-10-23"
+  type: Guest Lecture
+
+- title: "When Should I Run My Application Benchmark?"
+  event: "ACM International Conference on the Foundations of Software Engineering (FSE)"
+  location: "Trondheim, Norway"
+  date: "2025-06-23"
+  type: Conference
+
+- title: "Microservices for Variability in Scalable Cloud-Native Applications"
+  event: "Johannes Kepler University Linz, Product Line Engineering lecture"
+  location: "Virtual"
+  date: "2025-06-18"
+  type: Guest Lecture
+
+- title: "Analyzing Software Monitoring Data in Near-Real Time with Distributed Stream Processing"
+  event: "Kiel University, Software Engineering for Parallel and Distributed Systems lecture"
+  location: "Kiel, Germany"
+  date: "2025-01-29"
+  type: Guest Lecture
+
+- title: "ShuffleBench: A Benchmark for Large-Scale Data Shuffling Operations with Distributed Stream Processing Frameworks"
+  event: "SPEC Research Group DevOps Performance Working Group"
+  location: "Virtual"
+  date: "2025-01-14"
+  type: Invited Talk

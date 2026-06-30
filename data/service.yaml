@@ -1,1 +1,68 @@
 # Scientific community service
+# Structure: category (string), items (list of {role, venue, years/year})
+
+- category: Program Committees
+  items:
+    - role: PC Member
+      venue: "International Conference on Software Analysis, Evolution and Reengineering (SANER)"
+      years: "2026"
+    - role: PC Member
+      venue: "International Conference on Mining Software Repositories (MSR)"
+      years: "2024–2026"
+    - role: PC Member
+      venue: "European Conference on Software Architecture (ECSA)"
+      years: "2025"
+    - role: PC Member
+      venue: "International Conference on Evaluation and Assessment in Software Engineering (EASE)"
+      years: "2023"
+    - role: PC Member
+      venue: "Workshop on Hot Topics in Cloud Computing Performance (HotCloudPerf 2026)"
+      years: "2026"
+    - role: PC Member
+      venue: "Workshop on Challenges in Performance Methods for Software Development (WOSP-C)"
+      years: "2024"
+    - role: AEC Member
+      venue: "International Conference on Performance Engineering (ICPE)"
+      years: "2023, 2024"
+
+- category: Reviewing
+  items:
+    - role: Reviewer
+      venue: "Journal of Systems & Software"
+      years: "2025–2026"
+    - role: Reviewer
+      venue: "Journal of Parallel and Distributed Computing"
+      years: "2026"
+    - role: Reviewer
+      venue: "ACM Transactions on Autonomous and Adaptive Systems"
+      years: "2025"
+    - role: Reviewer
+      venue: "Computing"
+      years: "2024–2025"
+    - role: Reviewer
+      venue: "ACM Transactions on Software Engineering and Methodology"
+      year: "2024"
+    - role: Reviewer
+      venue: "Journal of Supercomputing"
+      year: "2024"
+    #- role: Reviewer
+    #  venue: "Future Generation Computer Systems"
+    #  years: "2020"
+
+- category: Organization
+  items:
+    - role: Organizer
+      venue: "Symposium on Software Performance"
+      year: "2024"
+    - role: Tools & Demos Chair
+      venue: "European Conference on Software Architecture"
+      year: "2027"
+    - role: Tutorial Chair
+      venue: "International Conference on Performance Engineering"
+      year: "2026"
+    - role: Artifact Evaluation Chair
+      venue: "International Conference on Performance Engineering"
+      year: "2025"
+    - role: Student Research Competition Chair
+      venue: "Software Engineering"
+      year: "2024"

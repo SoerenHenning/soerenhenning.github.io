@@ -1,1 +1,65 @@
-# Curriculum Vitae
+# CV data — structured as left column (research career + education) and right column (honors & awards)
+#
+# left:  list of category groups shown stacked in the left column
+# right: list of category groups shown stacked in the right column
+#
+# Each group: category (string), items (list of {period, title, institution, location, description})
+
+left:
+  - category: Research Career
+    items:
+      - period: "2025–present"
+        title: "Senior Researcher"
+        institution: "Dynatrace Research"
+        description: "Research in real-time analytics, stream processing, and empirical performance benchmarking for cloud-native systems."
+      - period: "2023–2024"
+        title: "Postdoctoral Researcher"
+        institution: "Johannes Kepler University Linz, Austria"
+        description: "Designing and evaluating stream processing solutions for large scale, real-time analysis of performance monitoring data in close collaboration with Dynatrace."
+      - period: "2018–2023"
+        title: "Research Associate & PhD Student"
+        institution: "Kiel University, Germany"
+        description: "Dissertation “Scalability Benchmarking of Cloud-Native Applications Applied to Event-Driven Microservices” under supervision of Prof. Dr. Wilhelm Hasselbring, graded with summa cum laude."
+
+  - category: Education
+    items:
+      - period: "2016–2018"
+        title: "MSc Computer Science"
+        institution: "Kiel University, Germany"
+      - period: "2017"
+        title: "Semester Abroad"
+        institution: "University of Bergen, Norway"
+      - period: "2013–2016"
+        title: "BSc Computer Science"
+        institution: "Kiel University, Germany"
+
+right:
+  - category: "Honors & Awards"
+    items:
+      - period: "2023"
+        title: "Kiel University Faculty Award"
+        #institution: ""
+        description: "For outstanding doctoral thesis at the Faculty of Engineering, Kiel University."
+      - period: "2023"
+        title: "b+m Dr. Wolfgang Goerigk Award"
+        #institution: ""
+        description: "For outstanding doctoral thesis regarding scientific quality and industrial relevance."
+      - period: "2024"
+        title: "Best Industry Paper Award "
+        institution: "International Conference on Performance Engineering 2024"
+      - period: "2024"
+        title: "Distinguished Junior PC Reviewer Award"
+        institution: "International Conference on Mining Software Repositories (MSR '24)"
+        #description: ""
+      - period: "2018"
+        title: "Best Master's Degree at the Department of Computer Science"
+        institution: "Kiel University, Germany"
+        #description: ""
+      - period: "2018"
+        title: "b+m Software + Systems Engineering Award"
+        #institution: ""
+        description: "For outstanding master thesis regarding scientific quality and industrial relevance."
+      - period: "2013–2018"
+        title: "Deutschlandstipendium Scholarship"
+        #institution: ""
+        description: "Awarded four times."

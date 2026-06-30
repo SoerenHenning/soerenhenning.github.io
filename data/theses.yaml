@@ -1,1 +1,94 @@
 # Supervised student theses
+# Fields: title, student, type (BSc/MSc/PhD), year, institution, cosupervisors, url
+
+- title: "An Extensible Architecture for Integrating Observability Systems in Theodolite"
+  student: "Elias Berger"
+  type: BSc
+  year: 2026
+  institution: "Johannes Kepler University Linz"
+- title: "Efficiently Storing Observability Data with Partitioned Fingerprint Graph Traversal"
+  student: "Lukas Anton Weidinger"
+  type: MSc
+  year: 2025
+  institution: "Johannes Kepler University Linz"
+- title: "Automatic Parameter Optimization for Stream Processing Systems"
+  student: "David Chen"
+  type: MSc
+  year: 2025
+  institution: "Johannes Kepler University Linz"
+- title: "Benchmarking Scalability of Load Generator Tools"
+  student: "Christopher Konkel"
+  type: BSc
+  year: 2023
+  institution: "Kiel University"
+- title: "Scalability Evaluation of ExplorViz with the Universal Scalability Law"
+  student: "Simon Ehrenstein"
+  type: MSc
+  year: 2022
+  institution: "Kiel University"
+  #cosupervisors: "Alexander Krause-Glau"
+- title: "Collecting and Exploiting Performance Metrics of Kafka Streams Applications"
+  student: "Benedikt Wetzel"
+  type: MSc
+  year: 2022
+  institution: "Kiel University"
+- title: "Benchmarking the Scalability of Distributed Stream Processing Engines in Case of Load Peaks"
+  student: "Lorenz Boguhn"
+  type: MSc
+  year: 2022
+  institution: "Kiel University"
+- title: "Reengineering Theodolite with the Java Operator SDK"
+  student: "Luca Mertens"
+  type: BSc
+  year: 2022
+  institution: "Kiel University"
+- title: "Empirical Scalability Evaluation of Window Aggregation Methods in Distributed Stream Processing"
+  student: "Björn von Heiden"
+  type: MSc
+  year: 2021
+  institution: "Kiel University"
+- title: "Scalability Benchmarking of Stream Processing Engines with Apache Beam"
+  student: "Jan Robert Bensien"
+  type: BSc
+  year: 2021
+  institution: "Kiel University"
+- title: "A Showcase for the Titan Control Center"
+  student: "Julian Grabitzky"
+  type: BSc
+  year: 2021
+  institution: "Kiel University"
+- title: "Scalable and Interactive Real-Time Visualization of Time Series Data"
+  student: "Tim Koch"
+  type: BSc
+  year: 2020
+  institution: "Kiel University"
+- title: "Scalability Benchmarking of Apache Flink"
+  student: "Nico Biernat"
+  type: BSc
+  year: 2020
+  institution: "Kiel University"
+- title: "Analyzing Environmental Data with the Titan Platform"
+  student: "Cédric Tsatia Tsida"
+  type: MSc
+  year: 2020
+  institution: "Kiel University"
+- title: "Forecasting Power Consumption of Manufacturing Industries Using Neural Networks"
+  student: "Lorenz Boguhn"
+  type: BSc
+  year: 2020
+  institution: "Kiel University"
+- title: "Entwicklung eines Dashboards für eine Industrial DevOps Monitoring Plattform"
+  student: "Benedikt Wetzel"
+  type: BSc
+  year: 2019
+  institution: "Kiel University"
+- title: "Distributed Sensor Management for an Industrial DevOps Monitoring Platform"
+  student: "Simon Ehrenstein"
+  type: BSc
+  year: 2019
+  institution: "Kiel University"
+- title: "Exploring an Energy-Status-Data Set from Industrial Production"
+  student: "Arved Hansen"
+  type: BSc
+  year: 2019
+  institution: "Kiel University"
