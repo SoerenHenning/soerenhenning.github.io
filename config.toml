@@ -8,6 +8,7 @@ disableKinds = ["taxonomy", "term"]
   name = "Sören Henning"
   role = "Researcher & TechEvangelist"
   organization = "Dynatrace Research"
+  location = "🇩🇪 Kiel, Germany / 🇦🇹 Linz, Austria"
   email = "c29lcmVuLmhlbm5pbmdAZHluYXRyYWNlLmNvbQ=="
 #  bio = """
 #I am a senior researcher at [Dynatrace Research](https://research.dynatrace.com), working at the intersection of software engineering, distributed systems, and data management. My research focuses on designing scalable, distributed software architectures, with particular interests in cloud computing, event and stream processing, as well as empirically grounded performance engineering.
