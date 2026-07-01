@@ -25,13 +25,13 @@
             <em>{{ .venue }}</em>
             {{ with .location }}, {{ . }}{{ end }}
           </p>
-          {{ with .abstract }}
-          <details class="pub-abstract">
-            <summary>Abstract</summary>
-            <p>{{ . }}</p>
-          </details>
-          {{ end }}
           <div class="pub-links">
+            {{ with .abstract }}
+            <details class="pub-abstract">
+              <summary class="pub-link pub-link--abstract">Abstract</summary>
+              <p>{{ . }}</p>
+            </details>
+            {{ end }}
             {{ with .doi }}<a class="pub-link pub-link--doi" href="https://doi.org/{{ . }}" target="_blank" rel="noopener noreferrer">DOI</a>{{ end }}
             {{ with .pdf }}<a class="pub-link pub-link--pdf" href="{{ . }}" target="_blank" rel="noopener noreferrer">PDF</a>{{ end }}
             {{ with .slides }}<a class="pub-link pub-link--slides" href="{{ . }}" target="_blank" rel="noopener noreferrer">Slides</a>{{ end }}
