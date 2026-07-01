@@ -236,6 +236,8 @@ img { max-width: 100%; display: block; }
   border-color: var(--color-accent-dk);
 }
 
+.social-link__email { font-size: 0.72em; }
+
 /* ── Sections (shared) ────────────────────────────────────── */
 .section        { padding: var(--section-pad) 24px; }
 .section--alt   { background: var(--color-bg-alt); }
