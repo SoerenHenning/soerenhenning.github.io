@@ -1,8 +1,15 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <p>
-      &copy; {{ now.Year }} {{ .Site.Params.name }}.
-      Built with <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>.
+      &copy; {{ now.Year }} <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">{{ .Site.Params.name }}</a>
+      {{ with .Site.Params.email }}&nbsp;&middot;&nbsp; <a href="#" data-email="{{ . }}" class="footer-email" target="_blank" rel="noopener noreferrer">Email</a>{{ end }}
     </p>
   </div>
 </footer>
+<script>
+  document.querySelectorAll('a[data-email].footer-email').forEach(function(el) {
+    var email = atob(el.dataset.email);
+    el.href = 'mailto:' + email;
+    el.textContent = email;
+  });
+</script>
