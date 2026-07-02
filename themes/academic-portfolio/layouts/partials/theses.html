@@ -19,11 +19,8 @@
             {{ end }}
           </h3>
           <p class="thesis-student">
-            <span class="thesis-student-label">Student:</span> {{ .student }}
+            <strong>{{ .student }}</strong>{{ with .institution }}, {{ . }}{{ end }}
           </p>
-          {{ with .institution }}
-          <p class="thesis-institution">{{ . }}</p>
-          {{ end }}
           {{ with .cosupervisors }}
           <p class="thesis-cosup">Co-supervised with: {{ . }}</p>
           {{ end }}

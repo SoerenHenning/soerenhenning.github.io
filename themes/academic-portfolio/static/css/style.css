@@ -502,6 +502,7 @@ img { max-width: 100%; display: block; }
   color: var(--color-subtle);
 }
 .thesis-student-label { font-weight: 700; color: var(--color-text); }
+.thesis-student strong { color: var(--color-text); font-weight: 700; }
 
 .thesis-institution,
 .thesis-cosup {
