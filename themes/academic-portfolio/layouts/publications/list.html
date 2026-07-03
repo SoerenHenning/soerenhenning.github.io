@@ -1,57 +1,147 @@
 {{ define "main" }}
+{{ $pubs := .Site.Data.publications }}
+{{ $years := slice }}{{ $types := slice }}
+{{ range $pubs }}
+  {{ $years = $years | append .year }}
+  {{ with .type }}{{ $types = $types | append . }}{{ end }}
+{{ end }}
+{{ $years = $years | uniq }}
+{{ $types = $types | uniq }}
+
 <div class="publications-page page-main">
   <div class="page-inner">
     <h1 class="page-title">Publications</h1>
 
-    {{ $pubs := .Site.Data.publications }}
     {{ if $pubs }}
-    <div class="pub-list">
-      {{ $prevYear := 0 }}
-      {{ range $pubs }}
-      {{ if ne .year $prevYear }}
-      <h2 class="pub-year-heading">{{ .year }}</h2>
-      {{ end }}
-      {{ $prevYear = .year }}
-      <article class="pub-entry">
-        <div class="pub-meta">
-          <span class="pub-year">{{ .year }}</span>
-          {{ with .type }}<span class="pub-type pub-type--{{ . | lower | replaceRE " " "-" }}">{{ . }}</span>{{ end }}
-        </div>
-        <div class="pub-body">
-          <h3 class="pub-title">
-            {{ if .doi }}
-            <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
-            {{ else if .url }}
-            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
-            {{ else }}
-            {{ .title }}
-            {{ end }}
-          </h3>
-          <p class="pub-authors">{{ .authors | markdownify }}</p>
-          <p class="pub-venue">
-            <em>{{ .venue }}</em>
-            {{ with .location }}, {{ . }}{{ end }}
-          </p>
-          <div class="pub-links">
-            {{ with .abstract }}
-            <details class="pub-abstract">
-              <summary class="pub-link pub-link--abstract">Abstract</summary>
-              <p>{{ . }}</p>
-            </details>
-            {{ end }}
-            {{ with .doi }}<a class="pub-link pub-link--doi" href="https://doi.org/{{ . }}" target="_blank" rel="noopener noreferrer">DOI</a>{{ end }}
-            {{ with .pdf }}<a class="pub-link pub-link--pdf" href="{{ . }}" target="_blank" rel="noopener noreferrer">PDF</a>{{ end }}
-            {{ with .slides }}<a class="pub-link pub-link--slides" href="{{ . }}" target="_blank" rel="noopener noreferrer">Slides</a>{{ end }}
-            {{ with .code }}<a class="pub-link pub-link--code" href="{{ . }}" target="_blank" rel="noopener noreferrer">Code</a>{{ end }}
-            {{ with .arxiv }}<a class="pub-link pub-link--arxiv" href="https://arxiv.org/abs/{{ . }}" target="_blank" rel="noopener noreferrer">arXiv</a>{{ end }}
+    <div class="publications-layout">
+
+      <aside class="pub-sidebar">
+        <details class="pub-filter-panel" open>
+          <summary>Filters</summary>
+          <div class="pub-filter-content">
+            <button class="pub-filter-clear" type="button">Clear filters</button>
+            <fieldset class="pub-filter-fieldset">
+              <legend>Year</legend>
+              {{ range $years }}
+              <label class="pub-filter-label">
+                <input type="checkbox" class="pub-filter" data-facet="year" value="{{ . }}">
+                {{ . }}
+              </label>
+              {{ end }}
+            </fieldset>
+            <fieldset class="pub-filter-fieldset">
+              <legend>Type</legend>
+              {{ range $types }}
+              <label class="pub-filter-label">
+                <input type="checkbox" class="pub-filter" data-facet="type" value="{{ . | lower | replaceRE " " "-" }}">
+                {{ . }}
+              </label>
+              {{ end }}
+            </fieldset>
           </div>
+        </details>
+      </aside>
+
+      <div class="pub-main">
+        <div class="pub-list">
+          {{ $prevYear := 0 }}
+          {{ $i := 0 }}
+          {{ range $pubs }}
+          {{ if ne .year $prevYear }}
+          {{ if ne $i 0 }}</div>{{ end }}
+          <div class="pub-year-group" data-year="{{ .year }}">
+            <h2 class="pub-year-heading">{{ .year }}</h2>
+          {{ end }}
+          {{ $prevYear = .year }}
+          {{ $i = add $i 1 }}
+          <article class="pub-entry" data-year="{{ .year }}" data-type="{{ with .type }}{{ . | lower | replaceRE " " "-" }}{{ end }}">
+            <div class="pub-meta">
+              <span class="pub-year">{{ .year }}</span>
+              {{ with .type }}<span class="pub-type pub-type--{{ . | lower | replaceRE " " "-" }}">{{ . }}</span>{{ end }}
+            </div>
+            <div class="pub-body">
+              <h3 class="pub-title">
+                {{ if .doi }}
+                <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+                {{ else if .url }}
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+                {{ else }}
+                {{ .title }}
+                {{ end }}
+              </h3>
+              <p class="pub-authors">{{ .authors | markdownify }}</p>
+              <p class="pub-venue">
+                <em>{{ .venue }}</em>
+                {{ with .location }}, {{ . }}{{ end }}
+              </p>
+              <div class="pub-links">
+                {{ with .abstract }}
+                <details class="pub-abstract">
+                  <summary class="pub-link pub-link--abstract">Abstract</summary>
+                  <p>{{ . }}</p>
+                </details>
+                {{ end }}
+                {{ with .doi }}<a class="pub-link pub-link--doi" href="https://doi.org/{{ . }}" target="_blank" rel="noopener noreferrer">DOI</a>{{ end }}
+                {{ with .pdf }}<a class="pub-link pub-link--pdf" href="{{ . }}" target="_blank" rel="noopener noreferrer">PDF</a>{{ end }}
+                {{ with .slides }}<a class="pub-link pub-link--slides" href="{{ . }}" target="_blank" rel="noopener noreferrer">Slides</a>{{ end }}
+                {{ with .code }}<a class="pub-link pub-link--code" href="{{ . }}" target="_blank" rel="noopener noreferrer">Code</a>{{ end }}
+                {{ with .arxiv }}<a class="pub-link pub-link--arxiv" href="https://arxiv.org/abs/{{ . }}" target="_blank" rel="noopener noreferrer">arXiv</a>{{ end }}
+              </div>
+            </div>
+          </article>
+          {{ end }}
+          {{ if $pubs }}</div>{{ end }}
         </div>
-      </article>
-      {{ end }}
+        <p class="pub-no-results" hidden>No publications match the selected filters.</p>
+      </div>
+
     </div>
     {{ else }}
     <p>No publications available yet.</p>
     {{ end }}
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var checkboxes = document.querySelectorAll('.pub-filter');
+    var entries    = document.querySelectorAll('.pub-entry');
+    var groups     = document.querySelectorAll('.pub-year-group');
+    var noResults  = document.querySelector('.pub-no-results');
+    var clearBtn   = document.querySelector('.pub-filter-clear');
+
+    function getChecked(facet) {
+      return Array.from(document.querySelectorAll('.pub-filter[data-facet="' + facet + '"]:checked'))
+                  .map(function (cb) { return cb.value; });
+    }
+
+    function applyFilters() {
+      var years = getChecked('year');
+      var types = getChecked('type');
+      var visible = 0;
+
+      entries.forEach(function (entry) {
+        var yearOk = years.length === 0 || years.indexOf(String(entry.dataset.year)) !== -1;
+        var typeOk = types.length === 0 || types.indexOf(entry.dataset.type) !== -1;
+        var show = yearOk && typeOk;
+        entry.hidden = !show;
+        if (show) visible++;
+      });
+
+      groups.forEach(function (group) {
+        var anyVisible = Array.from(group.querySelectorAll('.pub-entry')).some(function (e) { return !e.hidden; });
+        group.hidden = !anyVisible;
+      });
+
+      noResults.hidden = visible > 0;
+    }
+
+    checkboxes.forEach(function (cb) { cb.addEventListener('change', applyFilters); });
+
+    clearBtn.addEventListener('click', function () {
+      checkboxes.forEach(function (cb) { cb.checked = false; });
+      applyFilters();
+    });
+  });
+</script>
 {{ end }}
