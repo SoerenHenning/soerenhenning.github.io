@@ -248,7 +248,7 @@
   type: Conference
   pdf: https://ceur-ws.org/Vol-3043/short5.pdf
   abstract: >
-    Reproducibility is often mentioned as a core requirement for benchmarking studies of software systems and services. “Cloud-native” is an emerging style for building large-scale software systems, which leads to an increasing amount of benchmarks for cloud-native tools and architectures. However, the complex nature of cloud-native deployments makes the execution and repetition of benchmarks tedious and error-prone. In this paper we report on our experience with developing a benchmarking tool based on established cloud-native patterns and tools. In particular, we present a benchmarking tool architecture based on the Kubernetes Operator Pattern. Accompanied with a role model and a data model for describing benchmarks and their executions, this architecture aims to simplify defining, distributing, and executing benchmarks for better reproducibility. 
+    Reproducibility is often mentioned as a core requirement for benchmarking studies of software systems and services. “Cloud-native” is an emerging style for building large-scale software systems, which leads to an increasing amount of benchmarks for cloud-native tools and architectures. However, the complex nature of cloud-native deployments makes the execution and repetition of benchmarks tedious and error-prone. In this paper we report on our experience with developing a benchmarking tool based on established cloud-native patterns and tools. In particular, we present a benchmarking tool architecture based on the Kubernetes Operator Pattern. Accompanied with a role model and a data model for describing benchmarks and their executions, this architecture aims to simplify defining, distributing, and executing benchmarks for better reproducibility.
 
 - title: "How to Measure Scalability of Distributed Stream Processing Engines?"
   authors: "**Sören Henning**, Wilhelm Hasselbring"
@@ -367,7 +367,7 @@
     large software systems since these systems are often business-critical. Thus, continuous
     monitoring as well as real-time analysis become more and more important to recognize
     performance issues as soon as possible.
-    
+
     In this thesis, we present an approach and a corresponding implementation to visualize
     performance anomalies. Embedded in a web application, the visualization displays the
     execution times of operation calls and highlights detected anomalies in real time and

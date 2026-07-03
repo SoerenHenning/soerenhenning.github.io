@@ -6,7 +6,7 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   name = "Sören Henning"
-  role = "Researcher & TechEvangelist"
+  role = "Researcher & Tech Evangelist"
   organization = "Dynatrace Research"
   #location = "🇩🇪 Kiel, Germany / 🇦🇹 Linz, Austria"
   location = "🌍 Kiel, Germany / Linz, Austria"

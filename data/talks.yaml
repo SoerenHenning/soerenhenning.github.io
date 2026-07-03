@@ -1,7 +1,7 @@
 # Talks and presentations
 # Fields: title, event, location, date (YYYY-MM-DD), type, slides, video, doi
 
-- title: "Performance Optimization in Stream Processing Systems: Experiment-Driven Configuration Tuning for Kafka Streams "
+- title: "Performance Optimization in Stream Processing Systems: Experiment-Driven Configuration Tuning for Kafka Streams"
   event: "Workshop on Hot Topics in Cloud Computing Performance (at ACM/SPEC ICPE 2026)"
   location: "Florence, Italy"
   date: "2026-05-05"

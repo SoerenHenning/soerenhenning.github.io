@@ -12,7 +12,7 @@
    ============================================================ */
 
 /* ── Reset & base ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+/* Nunito is loaded via <link> in head.html (see partials/head.html) */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -797,7 +797,7 @@ img { max-width: 100%; display: block; }
   min-width: 0;
 }
 .pub-filter-panel {
-  background: var(--color-alt-bg);
+  background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 16px;
