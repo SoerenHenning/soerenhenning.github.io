@@ -1,6 +1,6 @@
 # soerenhenning.github.io
 
-Personal academic portfolio website built with [Hugo](https://gohugo.io) and the custom `academic-portfolio` theme. Deployed to GitHub Pages at <https://soerenhenning.github.io>.
+My personal portfolio website built with [Hugo](https://gohugo.io) and the custom `soerenhenning-portfolio` theme. Deployed to GitHub Pages at <https://soerenhenning.github.io>.
 
 ## Prerequisites
 

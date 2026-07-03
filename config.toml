@@ -1,7 +1,7 @@
 baseURL = "https://soerenhenning.github.io/"
 languageCode = "en-us"
 title = "Sören Henning"
-theme = "academic-portfolio"
+theme = "soerenhenning-portfolio"
 disableKinds = ["taxonomy", "term"]
 
 [params]
