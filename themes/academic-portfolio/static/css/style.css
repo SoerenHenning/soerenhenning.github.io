@@ -358,6 +358,21 @@ img { max-width: 100%; display: block; }
 .talk-type  { background: #fef9c3; color: #854d0e; }
 .thesis-type { background: #ede9fe; color: #5b21b6; }
 
+/* Award badge */
+.pub-award {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-align: right;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fbbf24;
+}
+.pub-award::before { content: "🏆 Award"; }
+
 /* Entry titles */
 .pub-title,
 .talk-title,
@@ -699,6 +714,7 @@ img { max-width: 100%; display: block; }
     align-items: center;
     width: unset;
   }
+  .pub-award::before { content: "🏆 " attr(title); }
 
   .service-grid  { grid-template-columns: 1fr; }
   .cv-layout     { grid-template-columns: 1fr; }

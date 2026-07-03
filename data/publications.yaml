@@ -83,6 +83,7 @@
   type: Conference
   doi: "10.1145/3629526.3645036"
   arxiv: "2403.04570"
+  award: "Best Industry Paper Award"
   featured: true
   abstract: >
     We introduce ShuffleBench, a benchmark for evaluating the performance of distributed stream processing

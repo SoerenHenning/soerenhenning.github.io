@@ -9,6 +9,7 @@
         <div class="pub-meta">
           <span class="pub-year">{{ .year }}</span>
           {{ with .type }}<span class="pub-type pub-type--{{ . | lower | replaceRE " " "-" }}">{{ . }}</span>{{ end }}
+          {{ with .award }}<span class="pub-award" title="{{ . }}"></span>{{ end }}
         </div>
         <div class="pub-body">
           <h3 class="pub-title">
