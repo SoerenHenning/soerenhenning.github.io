@@ -317,9 +317,9 @@ img { max-width: 100%; display: block; }
   gap: 6px;
   padding-top: 2px;
 }
-.pub-meta    { min-width: 72px; }
-.talk-meta   { min-width: 88px; }
-.thesis-meta { min-width: 60px; }
+.pub-meta    { width: 96px; }
+.talk-meta   { width: 120px; }
+.thesis-meta { width: 60px; }
 
 /* Body columns */
 .pub-body,
@@ -695,7 +695,7 @@ img { max-width: 100%; display: block; }
   .pub-meta, .talk-meta, .thesis-meta {
     flex-direction: row;
     align-items: center;
-    min-width: unset;
+    width: unset;
   }
 
   .service-grid  { grid-template-columns: 1fr; }
