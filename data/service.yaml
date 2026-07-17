@@ -34,6 +34,9 @@
       venue: "Journal of Parallel and Distributed Computing"
       years: "2026"
     - role: Reviewer
+      venue: "ACM Transactions on Architecture and Code Optimization"
+      years: "2026"
+    - role: Reviewer
       venue: "ACM Transactions on Autonomous and Adaptive Systems"
       years: "2025"
     - role: Reviewer
