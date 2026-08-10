@@ -34,6 +34,9 @@
       venue: "Journal of Parallel and Distributed Computing"
       years: "2026"
     - role: Reviewer
+      venue: "Information and Software Technology"
+      years: "2026"
+    - role: Reviewer
       venue: "ACM Transactions on Architecture and Code Optimization"
       years: "2026"
     - role: Reviewer
@@ -57,6 +60,9 @@
     - role: Organizer
       venue: "Symposium on Software Performance"
       year: "2024"
+    - role: Industry Chair
+      venue: "International Conference on Performance Engineering"
+      year: "2027"
     - role: Tools & Demos Chair
       venue: "European Conference on Software Architecture"
       year: "2027"
