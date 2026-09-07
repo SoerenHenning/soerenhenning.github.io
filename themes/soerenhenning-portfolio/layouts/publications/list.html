@@ -72,8 +72,7 @@
               </h3>
               <p class="pub-authors">{{ .authors | markdownify }}</p>
               <p class="pub-venue">
-                <em>{{ .venue }}</em>
-                {{ with .location }}, {{ . }}{{ end }}
+                <em>{{ .venue }}</em>{{ with .location }}, {{ . }}{{ end }}
               </p>
               <div class="pub-links">
                 {{ with .abstract }}

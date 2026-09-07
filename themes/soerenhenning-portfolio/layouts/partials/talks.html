@@ -13,8 +13,7 @@
         <div class="talk-body">
           <h3 class="talk-title">{{ .title }}</h3>
           <p class="talk-event">
-            <em>{{ .event }}</em>
-            {{ with .location }}, {{ . }}{{ end }}
+            <em>{{ .event }}</em>{{ with .location }}, {{ . }}{{ end }}
           </p>
           <div class="talk-links">
             {{ with .slides }}<a class="pub-link pub-link--slides" href="{{ . }}" target="_blank" rel="noopener noreferrer">Slides</a>{{ end }}
