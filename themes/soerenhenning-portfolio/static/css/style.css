@@ -667,6 +667,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   justify-content: center;
   font-size: 0.88rem;
+  text-align: center;
 }
 
 .site-footer a { color: rgba(255,255,255,0.85); }
